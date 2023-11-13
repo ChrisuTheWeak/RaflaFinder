@@ -14,7 +14,7 @@ struct RaflaFinderApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            //gays
+            //gaysmmmm
         }
     }
 }
