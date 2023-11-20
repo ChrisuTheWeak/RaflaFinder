@@ -14,11 +14,20 @@ struct ContentView: View {
     let locationManager = CLLocationManager()
     
     @State var region = MKCoordinateRegion(
-        center: .init(latitude: 37.334_900,longitude: -122.009_020),
+        center: .init(latitude: 60.223977,longitude: 24.758622),
         span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
     )
     
     var body: some View {
+      mapView
+    }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
+    }
+    private var mapView : some View{
         Map(coordinateRegion: $region,
             showsUserLocation: true,
             userTrackingMode: .constant(.follow)
@@ -26,11 +35,6 @@ struct ContentView: View {
             .onAppear {
                 locationManager.requestWhenInUseAuthorization()
             }
-    }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+        
     }
 }
