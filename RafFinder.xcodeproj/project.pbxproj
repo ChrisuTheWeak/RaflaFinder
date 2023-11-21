@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */; };
-		6AF3F8B82B04FC9C0001AB9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B72B04FC9C0001AB9F /* ContentView.swift */; };
+		6AF3F8B82B04FC9C0001AB9F /* FrontPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B72B04FC9C0001AB9F /* FrontPageView.swift */; };
 		6AF3F8BA2B04FC9E0001AB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */; };
 		6AF3F8BD2B04FC9E0001AB9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		6AF3F8B22B04FC9C0001AB9F /* RafFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RafFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafFinderApp.swift; sourceTree = "<group>"; };
-		6AF3F8B72B04FC9C0001AB9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6AF3F8B72B04FC9C0001AB9F /* FrontPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageView.swift; sourceTree = "<group>"; };
 		6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */,
-				6AF3F8B72B04FC9C0001AB9F /* ContentView.swift */,
+				6AF3F8B72B04FC9C0001AB9F /* FrontPageView.swift */,
 				6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */,
 				6AF3F8BB2B04FC9E0001AB9F /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF3F8B82B04FC9C0001AB9F /* ContentView.swift in Sources */,
+				6AF3F8B82B04FC9C0001AB9F /* FrontPageView.swift in Sources */,
 				6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

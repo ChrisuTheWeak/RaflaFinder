@@ -8,22 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        NavigationView {
-            FrontScreenView()
-                .navigationBarHidden(true)
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-struct FrontScreenView: View {
+struct FrontPageView: View {
     @State private var userInput: String = ""
 
     var body: some View {
@@ -104,3 +89,9 @@ struct FrontScreenView: View {
     }
 }
 
+
+struct FrontPageView_Previews: PreviewProvider {
+    static var previews: some View {
+        FrontPageView()
+    }
+}
