@@ -1,16 +1,16 @@
 //
 //  ContentView.swift
-//  RaflaFinder
+//  RafFinder
 //
 //  Created by iosdev on 11.11.2023.
 //
 
 import SwiftUI
-import WebKit
 
 
 struct ContentView: View {
     @State private var userInput: String = ""
+    var url = "https://www.kotipizza.fi/menu"
     var body: some View {
         ZStack {
             VStack {
@@ -44,11 +44,8 @@ struct ContentView: View {
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0)
                     .padding(.bottom)
                 
-                Link(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=URL@*/URL(string: "https://www.apple.com")!/*@END_MENU_TOKEN@*/) {
-                    Rectangle()
-                        .fill(.yellow)
-                        .frame(minWidth: 0, maxWidth: 380, minHeight:0)
-                }
+                Link("To the restaurant menu", destination: URL(string: url)!)
+                    
             }
             .offset(y:0)
             .frame(minWidth: 0, maxHeight: .infinity, alignment: .topLeading)
@@ -56,8 +53,8 @@ struct ContentView: View {
         
     }
 }
-struct ContentView_Previews: PreviewProvider {
+struct CantentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Menu()
     }
 }
