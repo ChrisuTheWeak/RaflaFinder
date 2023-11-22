@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-
 struct Menu: View {
     @State private var userInput: String = ""
     var restaurantName = "restaurant name"
     var url = "https://www.kotipizza.fi/menu" //needs to be changed cant be hard coded page
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -32,23 +32,35 @@ struct Menu: View {
                                 .padding(.trailing, 50)
                             }
                         )
-                    
                     Text(restaurantName)
                         .bold()
                         .fontWeight(.light)
                         .font(.title)
-                        .multilineTextAlignment(.center)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
+                        .frame(minWidth: 300, minHeight: 80)
                         .padding(.bottom)
                         .background(Color.white)
                         .cornerRadius(20)
-                    Text("Menu")
-                        .font(.title2)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0)
-                        .padding(.bottom)
-                        .frame(width: 300, height: 50, alignment: .center)
+                    HStack {
+                        Button (action:{
+                            
+                        }) {
+                            Text("<-")
+                        }
+                        .frame(minWidth: 50, minHeight: 50)
                         .background(Color.orange)
                         .cornerRadius(10)
+                        
+                        Text("Menu")
+                            .font(.title2)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0)
+                            .padding(.bottom)
+                            .frame(width: 300, height: 50, alignment: .center)
+                            .background(Color.orange)
+                            .cornerRadius(10)
+                        
+                    }
+                    .padding(1)
+                    
                     
                     Link("To the restaurant menu", destination: URL(string: url)!)
                         .frame(width: 350, height: 400)

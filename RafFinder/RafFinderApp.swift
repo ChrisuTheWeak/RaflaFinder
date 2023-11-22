@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct RafFinderApp: App {
+    @StateObject private var vm = RestaurantsViewModel()
+       
     var body: some Scene {
-        WindowGroup {
-            Menu()
-        }
+       WindowGroup {
+           FrontView()
+           //Menu()
+           //RestaurantView()
+              // .environmentObject(vm)
+       }
     }
 }
