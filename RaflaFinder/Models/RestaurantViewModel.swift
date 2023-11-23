@@ -21,7 +21,7 @@ class RestaurantsViewModel: ObservableObject{
     }
     
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     
     //restaurants listed
     @Published var showRestourants: Bool = false

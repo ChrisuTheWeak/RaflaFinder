@@ -21,7 +21,7 @@ struct Location: Identifiable, Equatable {
     var id: String{
         name + cityName
     }
-    // lisää lokaatioille logiican millä voi tarkistaa locaation id.n
+    // lisää lokaatioille logiikan millä voi tarkistaa locaation id.n
     static func == (lhs:Location, rhs: Location) -> Bool{
         lhs.id == rhs.id
     }

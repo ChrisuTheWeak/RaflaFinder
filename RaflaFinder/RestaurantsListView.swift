@@ -18,7 +18,7 @@ struct RestaurantsListView: View {
                     listRowView(location: location)
                 }
                     .padding(.vertical, 4)
-                    .listRowBackground(Color.gray.opacity(0.4))
+                    .listRowBackground(Color.black.opacity(0.4))
             }
         }
         .listStyle(PlainListStyle())

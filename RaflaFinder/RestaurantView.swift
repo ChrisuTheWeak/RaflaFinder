@@ -59,7 +59,9 @@ struct RestaurantView: View {
         }
         
         private var mapLayer: some View{
-            Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.locations,
+            Map(coordinateRegion: $vm.mapRegion,
+                showsUserLocation: true,
+                annotationItems: vm.locations,
                 annotationContent: { location in
                 MapAnnotation(coordinate: location.coordinates){
                     MapAnnotationView()
