@@ -26,6 +26,9 @@ class RestaurantsViewModel: ObservableObject{
     //restaurants list
     @Published var showRestourants: Bool = false
     
+    //Show location menu
+    @Published var sheetMenu : Location? = nil
+    
     init() {
         let locations = LocationData.locations
         

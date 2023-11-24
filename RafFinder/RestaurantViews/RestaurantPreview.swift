@@ -81,7 +81,7 @@ struct RestaurantPreview_Previews: PreviewProvider {
         //nappi ravintolan menu näkymään
         private var menuButton: some View{
             Button{
-                
+                vm.sheetMenu = location
             }label: {
                 Text("Menu")
                     .font(.headline)

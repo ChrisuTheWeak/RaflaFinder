@@ -21,15 +21,10 @@ struct RestaurantView: View {
                 mainView
                     .padding()
                 Spacer()
-                ZStack {
-                    ForEach(vm.locations){ location in
-                        if vm.mapLocation == location{
-                            RestaurantPreview(location: location)
-                            .padding()
-                        }
-                    }
-                }
+                restaurnatPreview
             }
+        }
+        .sheet(item: $vm.sheetMenu, onDismiss: nil){ location in Menu(location: location)
         }
     }
 }
@@ -81,7 +76,14 @@ struct RestaurantView: View {
             })
             
         }
-        //private var restaurnatPreview: some View{
-            
-        //}
+        private var restaurnatPreview: some View{
+            ZStack {
+                ForEach(vm.locations){ location in
+                    if vm.mapLocation == location{
+                        RestaurantPreview(location: location)
+                        .padding()
+                    }
+                }
+            }
+        }
     }
