@@ -13,10 +13,10 @@ struct RafFinderApp: App {
        
     var body: some Scene {
        WindowGroup {
-           FrontView()
+           //FrontView()
            //Menu()
-           //RestaurantView()
-              // .environmentObject(vm)
+           RestaurantView()
+               .environmentObject(vm)
        }
     }
 }

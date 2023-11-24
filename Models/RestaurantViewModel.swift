@@ -19,11 +19,11 @@ class RestaurantsViewModel: ObservableObject{
             updateMapRegion(location: mapLocation)
         }
     }
-    
+    // Tämän hetkinen sijainti
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
-    //restaurants listed
+    //restaurants list
     @Published var showRestourants: Bool = false
     
     init() {
@@ -51,5 +51,25 @@ class RestaurantsViewModel: ObservableObject{
             showRestourants = false
         }
         
+    }
+    
+    func nxtButtonPress (){
+        //haetaan tämän hetkinen indexsi locaatiosta.
+        guard let currentIndex = locations.firstIndex (where: {$0 == mapLocation}) else{
+            print("Didnt find current location")
+            return
+        }
+        //check if NextIndex is valid
+        let nextIndex = currentIndex + 1
+        guard locations.indices.contains(nextIndex) else {
+            
+            //Next Index is NOT valis
+            // restarts from 0
+            guard let firstLocation = locations.first else { return }
+            showNext(location: firstLocation)
+            return
+        }
+        let nextLocation = locations[nextIndex]
+        showNext(location: nextLocation)
     }
 }

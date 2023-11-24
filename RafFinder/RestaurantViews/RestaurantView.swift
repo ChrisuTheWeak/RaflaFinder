@@ -18,10 +18,17 @@ struct RestaurantView: View {
             mapLayer
                 .ignoresSafeArea()
             VStack(spacing: 0){
-                
                 mainView
                     .padding()
                 Spacer()
+                ZStack {
+                    ForEach(vm.locations){ location in
+                        if vm.mapLocation == location{
+                            RestaurantPreview(location: location)
+                            .padding()
+                        }
+                    }
+                }
             }
         }
     }
@@ -60,7 +67,9 @@ struct RestaurantView: View {
         }
         
         private var mapLayer: some View{
-            Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.locations,
+            Map(coordinateRegion: $vm.mapRegion,
+                showsUserLocation: true,
+                annotationItems: vm.locations,
                 annotationContent: { location in
                 MapAnnotation(coordinate: location.coordinates){
                     MapAnnotationView()
