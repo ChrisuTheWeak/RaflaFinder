@@ -8,19 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */; };
-		6AF3F8B82B04FC9C0001AB9F /* FrontPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B72B04FC9C0001AB9F /* FrontPageView.swift */; };
 		6AF3F8BA2B04FC9E0001AB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */; };
 		6AF3F8BD2B04FC9E0001AB9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */; };
-		FC5F41502B0D1B8200C57EFE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F414F2B0D1B8200C57EFE /* MapView.swift */; };
+		FC66648E2B1364BE00937750 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC66648D2B1364BE00937750 /* LocationManager.swift */; };
+		FC6664902B1364E600937750 /* FrontPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC66648F2B1364E600937750 /* FrontPageView.swift */; };
+		FC6664922B13652F00937750 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6664912B13652F00937750 /* HomeView.swift */; };
+		FC6664942B13655500937750 /* RaflaMapRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6664932B13655500937750 /* RaflaMapRepresentable.swift */; };
+		FC6664962B13657D00937750 /* LocationSearchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6664952B13657D00937750 /* LocationSearchActivationView.swift */; };
+		FC6664982B1365B600937750 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6664972B1365B600937750 /* LocationSearchView.swift */; };
+		FC66649A2B1365ED00937750 /* LocationSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6664992B1365ED00937750 /* LocationSearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6AF3F8B22B04FC9C0001AB9F /* RafFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RafFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafFinderApp.swift; sourceTree = "<group>"; };
-		6AF3F8B72B04FC9C0001AB9F /* FrontPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageView.swift; sourceTree = "<group>"; };
 		6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FC5F414F2B0D1B8200C57EFE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FC66648D2B1364BE00937750 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		FC66648F2B1364E600937750 /* FrontPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageView.swift; sourceTree = "<group>"; };
+		FC6664912B13652F00937750 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FC6664932B13655500937750 /* RaflaMapRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaflaMapRepresentable.swift; sourceTree = "<group>"; };
+		FC6664952B13657D00937750 /* LocationSearchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchActivationView.swift; sourceTree = "<group>"; };
+		FC6664972B1365B600937750 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		FC6664992B1365ED00937750 /* LocationSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +63,11 @@
 		6AF3F8B42B04FC9C0001AB9F /* RafFinder */ = {
 			isa = PBXGroup;
 			children = (
+				FC66648C2B1364A600937750 /* Managers */,
+				FC6664882B13644C00937750 /* Core */,
 				6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */,
-				6AF3F8B72B04FC9C0001AB9F /* FrontPageView.swift */,
 				6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */,
 				6AF3F8BB2B04FC9E0001AB9F /* Preview Content */,
-				FC5F414F2B0D1B8200C57EFE /* MapView.swift */,
 			);
 			path = RafFinder;
 			sourceTree = "<group>";
@@ -68,6 +78,51 @@
 				6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FC6664882B13644C00937750 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FC66648B2B13648000937750 /* Location */,
+				FC66648A2B13645800937750 /* Front */,
+				FC6664892B13645200937750 /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FC6664892B13645200937750 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC6664912B13652F00937750 /* HomeView.swift */,
+				FC6664932B13655500937750 /* RaflaMapRepresentable.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FC66648A2B13645800937750 /* Front */ = {
+			isa = PBXGroup;
+			children = (
+				FC66648F2B1364E600937750 /* FrontPageView.swift */,
+			);
+			path = Front;
+			sourceTree = "<group>";
+		};
+		FC66648B2B13648000937750 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				FC6664952B13657D00937750 /* LocationSearchActivationView.swift */,
+				FC6664972B1365B600937750 /* LocationSearchView.swift */,
+				FC6664992B1365ED00937750 /* LocationSearchResult.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		FC66648C2B1364A600937750 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FC66648D2B1364BE00937750 /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF3F8B82B04FC9C0001AB9F /* FrontPageView.swift in Sources */,
-				FC5F41502B0D1B8200C57EFE /* MapView.swift in Sources */,
+				FC6664982B1365B600937750 /* LocationSearchView.swift in Sources */,
 				6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */,
+				FC6664942B13655500937750 /* RaflaMapRepresentable.swift in Sources */,
+				FC66649A2B1365ED00937750 /* LocationSearchResult.swift in Sources */,
+				FC6664922B13652F00937750 /* HomeView.swift in Sources */,
+				FC66648E2B1364BE00937750 /* LocationManager.swift in Sources */,
+				FC6664962B13657D00937750 /* LocationSearchActivationView.swift in Sources */,
+				FC6664902B1364E600937750 /* FrontPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
