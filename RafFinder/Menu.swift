@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct Menu: View {
+    @EnvironmentObject private var vm: RestaurantsViewModel
+    let location: Location
+    
     @State private var userInput: String = ""
-    var restaurantName = "restaurant name"
+    
     var url = "https://www.kotipizza.fi/menu" //needs to be changed cant be hard coded page
     
     var body: some View {
@@ -32,7 +35,7 @@ struct Menu: View {
                                 .padding(.trailing, 50)
                             }
                         )
-                    Text(restaurantName)
+                    Text(location.name)
                         .bold()
                         .fontWeight(.light)
                         .font(.title)
@@ -41,14 +44,10 @@ struct Menu: View {
                         .background(Color.white)
                         .cornerRadius(20)
                     HStack {
-                        Button (action:{
-                            
-                        }) {
-                            Text("<-")
-                        }
-                        .frame(minWidth: 50, minHeight: 50)
-                        .background(Color.orange)
-                        .cornerRadius(10)
+                        backButton
+                            .frame(minWidth: 50, minHeight: 50)
+                            .background(Color.orange)
+                            .cornerRadius(10)
                         
                         Text("Menu")
                             .font(.title2)
@@ -73,10 +72,28 @@ struct Menu: View {
                 .background(Color.red)
             }
         }
+        
     }
+    
 }
+
 struct Menu_Previews: PreviewProvider {
     static var previews: some View {
-        Menu()
+        Menu(location:
+            LocationData.locations.first!)
+        .padding()
+        .environmentObject(RestaurantsViewModel())
+    }
+}
+
+extension Menu {
+    private var backButton: some View{
+        Button{
+            vm.sheetMenu = nil
+        }label: {
+            Image(systemName: "xmark")
+                .font(.headline)
+                .padding()
+        }
     }
 }

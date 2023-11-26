@@ -17,6 +17,9 @@
 		6A6C3DC62B0CD6D000118509 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DC52B0CD6D000118509 /* LocationData.swift */; };
 		6A6C3DC82B0CDA8300118509 /* FrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DC72B0CDA8300118509 /* FrontView.swift */; };
 		6A6C3DCC2B0D0D0C00118509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DCB2B0D0D0C00118509 /* ViewController.swift */; };
+		6A6C3DCF2B11240300118509 /* RestaurantPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DCE2B11240300118509 /* RestaurantPreview.swift */; };
+		6A6C3DD22B12106100118509 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DD12B12106100118509 /* API.swift */; };
+		6A6C3DD42B12107700118509 /* FIndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DD32B12107700118509 /* FIndSearch.swift */; };
 		6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */; };
 		6AF3F8BA2B04FC9E0001AB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */; };
 		6AF3F8BD2B04FC9E0001AB9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		6A6C3DC52B0CD6D000118509 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		6A6C3DC72B0CDA8300118509 /* FrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontView.swift; sourceTree = "<group>"; };
 		6A6C3DCB2B0D0D0C00118509 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6A6C3DCE2B11240300118509 /* RestaurantPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreview.swift; sourceTree = "<group>"; };
+		6A6C3DD12B12106100118509 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		6A6C3DD32B12107700118509 /* FIndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIndSearch.swift; sourceTree = "<group>"; };
 		6AF3F8B22B04FC9C0001AB9F /* RafFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RafFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafFinderApp.swift; sourceTree = "<group>"; };
 		6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +73,27 @@
 			path = LocationData;
 			sourceTree = "<group>";
 		};
+		6A6C3DCD2B11166A00118509 /* RestaurantViews */ = {
+			isa = PBXGroup;
+			children = (
+				6A6C3DBD2B0CD5C100118509 /* RestaurantsListView.swift */,
+				6A6C3DBB2B0CD58900118509 /* RestaurantView.swift */,
+				6A6C3DB92B0CD52800118509 /* RestaurantDetailView.swift */,
+				6A6C3DB72B0CD45800118509 /* MapAnnotationView.swift */,
+				6A6C3DCE2B11240300118509 /* RestaurantPreview.swift */,
+			);
+			path = RestaurantViews;
+			sourceTree = "<group>";
+		};
+		6A6C3DD02B12101900118509 /* ApiFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6A6C3DD12B12106100118509 /* API.swift */,
+				6A6C3DD32B12107700118509 /* FIndSearch.swift */,
+			);
+			path = ApiFiles;
+			sourceTree = "<group>";
+		};
 		6AF3F8A92B04FC9C0001AB9F = {
 			isa = PBXGroup;
 			children = (
@@ -88,14 +115,12 @@
 		6AF3F8B42B04FC9C0001AB9F /* RafFinder */ = {
 			isa = PBXGroup;
 			children = (
+				6A6C3DD02B12101900118509 /* ApiFiles */,
+				6A6C3DCD2B11166A00118509 /* RestaurantViews */,
 				6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */,
 				6A6C3DC72B0CDA8300118509 /* FrontView.swift */,
-				6A6C3DB72B0CD45800118509 /* MapAnnotationView.swift */,
 				6A6C3DCB2B0D0D0C00118509 /* ViewController.swift */,
 				6A6C3DB52B09F0EB00118509 /* Menu.swift */,
-				6A6C3DB92B0CD52800118509 /* RestaurantDetailView.swift */,
-				6A6C3DBB2B0CD58900118509 /* RestaurantView.swift */,
-				6A6C3DBD2B0CD5C100118509 /* RestaurantsListView.swift */,
 				6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */,
 				6AF3F8BB2B04FC9E0001AB9F /* Preview Content */,
 			);
@@ -180,13 +205,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6C3DD42B12107700118509 /* FIndSearch.swift in Sources */,
 				6A6C3DB62B09F0EB00118509 /* Menu.swift in Sources */,
+				6A6C3DCF2B11240300118509 /* RestaurantPreview.swift in Sources */,
 				6A6C3DC12B0CD65200118509 /* RestaurantViewModel.swift in Sources */,
 				6A6C3DBA2B0CD52800118509 /* RestaurantDetailView.swift in Sources */,
 				6A6C3DC82B0CDA8300118509 /* FrontView.swift in Sources */,
 				6A6C3DCC2B0D0D0C00118509 /* ViewController.swift in Sources */,
 				6A6C3DC62B0CD6D000118509 /* LocationData.swift in Sources */,
 				6A6C3DC42B0CD6B400118509 /* Location.swift in Sources */,
+				6A6C3DD22B12106100118509 /* API.swift in Sources */,
 				6A6C3DB82B0CD45800118509 /* MapAnnotationView.swift in Sources */,
 				6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */,
 				6A6C3DBC2B0CD58900118509 /* RestaurantView.swift in Sources */,

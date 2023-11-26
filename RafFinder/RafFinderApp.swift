@@ -16,7 +16,7 @@ struct RafFinderApp: App {
            FrontView()
            //Menu()
            //RestaurantView()
-              // .environmentObject(vm)
+             //  .environmentObject(vm)
        }
     }
 }
