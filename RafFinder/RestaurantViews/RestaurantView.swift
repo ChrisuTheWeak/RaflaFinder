@@ -8,6 +8,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 
 struct RestaurantView: View {
@@ -36,6 +37,8 @@ struct RestaurantView: View {
         }
     }
     extension RestaurantView{
+        
+        //MainView is the top bar that has the navigation and name.
         private var mainView: some View{
             VStack{
                 Text(vm.mapLocation.name + ", " + vm.mapLocation.cityName)
@@ -60,7 +63,7 @@ struct RestaurantView: View {
             .background(.thickMaterial.opacity(0.5))
             .cornerRadius(10)
         }
-        
+        //MapLayer is the map it self and annotations with userLocation.
         private var mapLayer: some View{
             Map(coordinateRegion: $vm.mapRegion,
                 showsUserLocation: true,
@@ -84,6 +87,12 @@ struct RestaurantView: View {
                         .padding()
                     }
                 }
+            }
+        }
+        class LocationManager {
+            let locationManager = CLLocationManager()
+            func requestLocation (){
+                locationManager.requestWhenInUseAuthorization()
             }
         }
     }

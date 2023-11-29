@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-//Ravintolan esikatselu ruudukko. Käytetään locaatiota, nimeä ja Kauppunkia LocationDatasta
 
+// Preview for restaurant: show name city. 3 buttons Directions, Menu and Nxt Button. LocationData is used here to and RVM to localize data on screen for what will be shown.
 struct RestaurantPreview: View {
     
     @EnvironmentObject private var vm: RestaurantsViewModel
@@ -51,7 +51,7 @@ struct RestaurantPreview_Previews: PreviewProvider {
     }
 }
     extension RestaurantPreview {
-        //ravintolan kuva.
+        //Restaurants picture
         private var imageCard: some View{
             ZStack{
                 if let imageName = location.imageNames.first{
@@ -66,7 +66,7 @@ struct RestaurantPreview_Previews: PreviewProvider {
             .background(Color.red)
             .cornerRadius(10)
         }
-        //ravintolan nimi ja kaupinki
+        //Restaurant Name and CityName
         private var textCard: some View {
             VStack (alignment: .leading, spacing: 4){
                 Text(location.name)
@@ -78,7 +78,7 @@ struct RestaurantPreview_Previews: PreviewProvider {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        //nappi ravintolan menu näkymään
+        //Button for restaurant Menu
         private var menuButton: some View{
             Button{
                 vm.sheetMenu = location
@@ -90,7 +90,7 @@ struct RestaurantPreview_Previews: PreviewProvider {
             .buttonStyle(.borderedProminent)
          
         }
-        //nappi seuraavaan ranintolaan.
+        //Button for next restaurnat:
         private var nxtRaflaButton: some View{
             Button{
                 vm.nxtButtonPress()
@@ -101,6 +101,7 @@ struct RestaurantPreview_Previews: PreviewProvider {
             }
             .buttonStyle(.bordered)
         }
+        //Button to get directions
         private var directionsButton: some View{
             Button{
                 
