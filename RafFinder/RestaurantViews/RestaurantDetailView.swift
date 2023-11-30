@@ -7,7 +7,7 @@
 
 
 import SwiftUI
-
+//useless Screen... NOT IN USE.
 struct RestaurantDetailView: View {
     
     let location: Location

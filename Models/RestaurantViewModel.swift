@@ -7,26 +7,28 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 import MapKit
 
 class RestaurantsViewModel: ObservableObject{
-    //Ladatut paikat
+    //Loaded  locations from data (LocationData)
     @Published var locations: [Location]
     
-    //Kartan tämänhetkinen sijainti
+    //Map's current Location
     @Published var mapLocation: Location {
         didSet{
             updateMapRegion(location: mapLocation)
         }
     }
-    // Tämän hetkinen sijainti
+    // Current Location of map and user.
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
-    //restaurants list
+    //restaurants list for dropdown menu
     @Published var showRestourants: Bool = false
     
-    //Show location menu
+    //Show location menu clicked restaurants menu page.
+    //also check if something is selected and display that and return to first index if list is complete.
     @Published var sheetMenu : Location? = nil
     
     init() {
@@ -57,7 +59,7 @@ class RestaurantsViewModel: ObservableObject{
     }
     
     func nxtButtonPress (){
-        //haetaan tämän hetkinen indexsi locaatiosta.
+        //get current index of map.
         guard let currentIndex = locations.firstIndex (where: {$0 == mapLocation}) else{
             print("Didnt find current location")
             return
@@ -75,4 +77,6 @@ class RestaurantsViewModel: ObservableObject{
         let nextLocation = locations[nextIndex]
         showNext(location: nextLocation)
     }
+    
+
 }

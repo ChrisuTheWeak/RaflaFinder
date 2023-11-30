@@ -22,16 +22,14 @@ struct RestaurantView: View {
                 mainView
                     .padding()
                 Spacer()
-                restaurantPreview
+                restaurnatPreview
             }
         }
-        .sheet(item: $vm.sheetMenu, onDismiss: nil){
-            location in Menu(location: location)
+        .sheet(item: $vm.sheetMenu, onDismiss: nil){ location in Menu(location: location)
         }
     }
 }
-
-
+    
     struct RestaurantView_Previews: PreviewProvider {
         static var previews: some View {
             RestaurantView()
@@ -39,6 +37,8 @@ struct RestaurantView: View {
         }
     }
     extension RestaurantView{
+        
+        //MainView is the top bar that has the navigation and name.
         private var mainView: some View{
             VStack{
                 Text(vm.mapLocation.name + ", " + vm.mapLocation.cityName)
@@ -63,9 +63,10 @@ struct RestaurantView: View {
             .background(.thickMaterial.opacity(0.5))
             .cornerRadius(10)
         }
-        
+        //MapLayer is the map it self and annotations with userLocation.
         private var mapLayer: some View{
-            Map(coordinateRegion: $vm.mapRegion, showsUserLocation: true,
+            Map(coordinateRegion: $vm.mapRegion,
+                showsUserLocation: true,
                 annotationItems: vm.locations,
                 annotationContent: { location in
                 MapAnnotation(coordinate: location.coordinates){
@@ -78,14 +79,20 @@ struct RestaurantView: View {
             })
             
         }
-        private var restaurantPreview: some View{
-            ZStack{
+        private var restaurnatPreview: some View{
+            ZStack {
                 ForEach(vm.locations){ location in
                     if vm.mapLocation == location{
                         RestaurantPreview(location: location)
-                            .padding()
+                        .padding()
                     }
                 }
+            }
+        }
+        class LocationManager {
+            let locationManager = CLLocationManager()
+            func requestLocation (){
+                locationManager.requestWhenInUseAuthorization()
             }
         }
     }
