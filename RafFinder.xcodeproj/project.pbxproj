@@ -16,7 +16,6 @@
 		6A6C3DC42B0CD6B400118509 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DC32B0CD6B400118509 /* Location.swift */; };
 		6A6C3DC62B0CD6D000118509 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DC52B0CD6D000118509 /* LocationData.swift */; };
 		6A6C3DC82B0CDA8300118509 /* FrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DC72B0CDA8300118509 /* FrontView.swift */; };
-		6A6C3DCC2B0D0D0C00118509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DCB2B0D0D0C00118509 /* ViewController.swift */; };
 		6A6C3DCF2B11240300118509 /* RestaurantPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DCE2B11240300118509 /* RestaurantPreview.swift */; };
 		6A6C3DD22B12106100118509 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DD12B12106100118509 /* API.swift */; };
 		6A6C3DD42B12107700118509 /* FIndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DD32B12107700118509 /* FIndSearch.swift */; };
@@ -35,7 +34,6 @@
 		6A6C3DC32B0CD6B400118509 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		6A6C3DC52B0CD6D000118509 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		6A6C3DC72B0CDA8300118509 /* FrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontView.swift; sourceTree = "<group>"; };
-		6A6C3DCB2B0D0D0C00118509 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6A6C3DCE2B11240300118509 /* RestaurantPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreview.swift; sourceTree = "<group>"; };
 		6A6C3DD12B12106100118509 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		6A6C3DD32B12107700118509 /* FIndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIndSearch.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				6A6C3DCD2B11166A00118509 /* RestaurantViews */,
 				6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */,
 				6A6C3DC72B0CDA8300118509 /* FrontView.swift */,
-				6A6C3DCB2B0D0D0C00118509 /* ViewController.swift */,
 				6A6C3DB52B09F0EB00118509 /* Menu.swift */,
 				6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */,
 				6AF3F8BB2B04FC9E0001AB9F /* Preview Content */,
@@ -211,7 +208,6 @@
 				6A6C3DC12B0CD65200118509 /* RestaurantViewModel.swift in Sources */,
 				6A6C3DBA2B0CD52800118509 /* RestaurantDetailView.swift in Sources */,
 				6A6C3DC82B0CDA8300118509 /* FrontView.swift in Sources */,
-				6A6C3DCC2B0D0D0C00118509 /* ViewController.swift in Sources */,
 				6A6C3DC62B0CD6D000118509 /* LocationData.swift in Sources */,
 				6A6C3DC42B0CD6B400118509 /* Location.swift in Sources */,
 				6A6C3DD22B12106100118509 /* API.swift in Sources */,

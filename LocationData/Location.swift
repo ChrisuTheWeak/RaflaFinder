@@ -16,6 +16,7 @@ struct Location: Identifiable, Equatable {
     let coordinates: CLLocationCoordinate2D
     let imageNames: [String]
     let description: String
+    let webSite: String
     
     //identiteetti kaikille listassa oleville.
     var id: String{

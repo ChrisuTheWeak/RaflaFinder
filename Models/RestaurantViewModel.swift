@@ -66,7 +66,7 @@ class RestaurantsViewModel: ObservableObject{
         let nextIndex = currentIndex + 1
         guard locations.indices.contains(nextIndex) else {
             
-            //Next Index is NOT valis
+            //Next Index is NOT valid
             // restarts from 0
             guard let firstLocation = locations.first else { return }
             showNext(location: firstLocation)

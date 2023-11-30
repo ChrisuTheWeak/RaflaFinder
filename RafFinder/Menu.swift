@@ -13,7 +13,6 @@ struct Menu: View {
     
     @State private var userInput: String = ""
     
-    var url = "https://www.kotipizza.fi/menu" //needs to be changed cant be hard coded page
     
     var body: some View {
         NavigationView {
@@ -61,7 +60,7 @@ struct Menu: View {
                     .padding(1)
                     
                     
-                    Link("To the restaurant menu", destination: URL(string: url)!)
+                    Link("To the restaurant menu", destination: URL(string: location.webSite)!)
                         .frame(width: 350, height: 400)
                         .background(Color.yellow)
                         .cornerRadius(10)
