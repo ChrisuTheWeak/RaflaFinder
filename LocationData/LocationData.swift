@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-class LocationData {
+/*class LocationData {
     
     static let locations: [Location] = [
         Location(
@@ -26,4 +26,4 @@ class LocationData {
             description: "Suomalainen kala elukka"
         )
     ]
-}
+}*/

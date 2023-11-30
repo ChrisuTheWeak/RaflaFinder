@@ -19,7 +19,7 @@ struct Location: Identifiable, Equatable {
     
     //identiteetti kaikille listassa oleville.
     var id: String{
-        name + cityName
+        name + city
     }
     // lisää lokaatioille logiican millä voi tarkistaa locaation id.n
     static func == (lhs:Location, rhs: Location) -> Bool{
@@ -27,3 +27,4 @@ struct Location: Identifiable, Equatable {
     }
     
 }
+

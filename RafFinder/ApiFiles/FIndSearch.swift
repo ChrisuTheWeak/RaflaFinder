@@ -1,66 +1,88 @@
 import Foundation
-import SwiftUI
 
-class FindSearch {
-    private let apiKey = "54B590DBD956436CB09843EAFEC982D2"
+// Address object model
+struct Address: Codable {
+    let street1: String
+    let city: String
+    let country: String
+    let postalcode: String
+    let addressString: String
+
+    enum CodingKeys: String, CodingKey {
+        case street1, city, country, postalcode
+        case addressString = "address_string"
+    }
     
-    func fetchTripAdvisorData() {
-        // Construct the API URL with the provided query parameters
-        let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?API_KEY=\(apiKey)&searchQuery=pizza&category=reastaurants&radius=5&radiusUnit=km&language=en"
-        
-        if let url = URL(string: urlString) {
-            // Create an HTTP request with the constructed URL
-            let request = createRequest(url: url)
-            
-            // Initiate the data fetching process
-            fetchData(with: request)
-        } else {
-            print("Invalid URL")
-        }
-    }
+}
 
-    // Function to create an HTTP GET request
-    private func createRequest(url: URL) -> URLRequest {
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        // Set the "accept" header to indicate that we expect JSON data in the response
-        request.addValue("application/json", forHTTPHeaderField: "accept")
-        
-        return request
-    }
+// Restaurant model
+struct Restaurant: Codable {
+    let locationId: String
+    let name: String
+    let distance: String
+    let bearing: String
+    let addressObj: Address
 
-    // Function to initiate data fetching using the provided request
-    private func fetchData(with request: URLRequest) {
-        let session = URLSession.shared
-        
-        
-        let dataTask = session.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)") // Handle network errors
-            } else if let httpResponse = response as? HTTPURLResponse {
-                print("Response status code: \(httpResponse.statusCode)")
-                
-                if let data = data {
-                    // Parse and handle the JSON data in the response
-                    self.parseData(data)
-                }
-            }
-        }
-        
-        
-        dataTask.resume()
-    }
-
-    // Function to parse the JSON data received from the API
-    private func parseData(_ data: Data) {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                // Now 'json' is a dictionary containing the parsed JSON data
-                print(json)
-            }
-        } catch {
-            print("Error parsing JSON: \(error)") // Handle JSON parsing errors
-        }
+    enum CodingKeys: String, CodingKey {
+        case locationId = "location_id"
+        case name, distance, bearing
+        case addressObj = "address_obj"
     }
 }
+
+// Top-level response model
+struct ApiResponse: Codable {
+    let data: [Restaurant]
+}
+
+let apiKey = "54B590DBD956436CB09843EAFEC982D2"
+let searchQuery = "pizza"
+let category = "restaurants"
+let latLong = "60.2194,24.8135"
+let radius = "5"
+let radiusUnit = "km"
+let language = "en"
+
+let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
+
+
+func FindSearchApi() {
+    if let url = URL(string: urlString) {
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Invalid response")
+                return
+            }
+
+            guard let data = data else {
+                print("No data")
+                return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                let apiResponse = try decoder.decode(ApiResponse.self, from: data)
+                // Process your data here
+                for restaurant in apiResponse.data {
+                    print("Name: \(restaurant.name), Location ID: \(restaurant.locationId), Address: \(restaurant.addressObj.addressString)")
+                }
+            } catch {
+                print("Error parsing JSON: \(error)")
+            }
+        }
+        
+        dataTask.resume()
+    } else {
+        print("Invalid URL")
+    }
+}
+
