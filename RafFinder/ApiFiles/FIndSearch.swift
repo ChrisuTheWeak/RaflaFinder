@@ -1,4 +1,5 @@
 import Foundation
+import CoreLocation
 
 // Address object model
 struct Address: Codable {
@@ -84,4 +85,20 @@ func FindSearchApi() {
     } else {
         print("Invalid URL")
     }
+    
 }
+class APIManager {
+    static let shared = APIManager()
+
+    func fetchRestaurants() async throws -> [Restaurant] {
+        let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
+        guard let url = URL(string: urlString) else {
+            throw URLError(.badURL)
+        }
+
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let apiResponse = try JSONDecoder().decode(ApiResponse.self, from: data)
+        return apiResponse.data
+    }
+}
+

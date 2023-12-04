@@ -15,6 +15,8 @@ struct RafFinderApp: App {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
+        
     }
     var body: some Scene {
        WindowGroup {

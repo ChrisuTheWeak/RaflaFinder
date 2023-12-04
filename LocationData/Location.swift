@@ -47,7 +47,6 @@ struct Location: Identifiable, Equatable {
             print("Address Broken!!!")
         }
     }*/
-   
 
     // lisää lokaatioille logiican millä voi tarkistaa locaation id.n
     static func == (lhs:Location, rhs: Location) -> Bool{

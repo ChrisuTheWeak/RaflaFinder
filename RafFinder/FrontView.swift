@@ -90,8 +90,10 @@ struct FrontScreenView: View {
                     
                     
                     NavigationLink(destination: {
+                        
                         RestaurantView()
                             .environmentObject(RestaurantsViewModel())
+                        
                     }, label: {
                         Text("Let's Go")
                             .fontWeight(.heavy)
