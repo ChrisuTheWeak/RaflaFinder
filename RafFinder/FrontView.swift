@@ -29,6 +29,10 @@ struct FrontScreenView: View {
     
     @State private var userInput: String = ""
     
+    var toMapViewButton: String = "Let's Go"
+    
+    
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -53,7 +57,7 @@ struct FrontScreenView: View {
                     
                     Spacer(minLength: 80)
                     
-                    TextField("Enter food or restaurant name", text: $userInput)
+                    TextField("Enter food name", text: $userInput)
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .foregroundColor(.blue)
@@ -75,9 +79,9 @@ struct FrontScreenView: View {
                     Spacer()
                     
                     Button(action: {
-                        
+                        changeLanguage()
                     }) {
-                        Text("Random")
+                        Text("Change language")
                             .fontWeight(.heavy)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
@@ -90,12 +94,10 @@ struct FrontScreenView: View {
                     
                     
                     NavigationLink(destination: {
-                        
                         RestaurantView()
                             .environmentObject(RestaurantsViewModel())
-                        
                     }, label: {
-                        Text("Let's Go")
+                        Text(toMapViewButton)
                             .fontWeight(.heavy)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
