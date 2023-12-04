@@ -36,12 +36,23 @@ struct ApiResponse: Codable {
 }
 
 let apiKey = "54B590DBD956436CB09843EAFEC982D2"
-let searchQuery = "pizza"
-let category = "restaurants"
+var searchQuery = "$userInput"
+var category = ""
 let latLong = "60.2194,24.8135"
 let radius = "5"
 let radiusUnit = "km"
-let language = "en"
+var language = "en"
+
+func changeLanguage(){
+    if(language == "en"){
+        language = "swe"
+        category = "restauranger"
+    } else {
+        language = "en"
+        category = "restaurants"
+    }
+}
+
 
 let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
 
