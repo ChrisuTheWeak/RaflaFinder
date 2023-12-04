@@ -40,13 +40,13 @@ struct Location: Identifiable, Equatable {
         }
     }
     
-   getCoordinates(from: address) { coordinate in
-        if (coordinate != nil){
-            print(coordinate.unsafelyUnwrapped)
-        }else{
-            print("Address Broken!!!")
-        }
-    }
+  // getCoordinates(from: address) { coordinate in
+    //    if (coordinate != nil){
+           // print(coordinate.unsafelyUnwrapped)
+       // }else{
+          //  print("Address Broken!!!")
+       // }
+   // }
    
 
     // lisää lokaatioille logiican millä voi tarkistaa locaation id.n
