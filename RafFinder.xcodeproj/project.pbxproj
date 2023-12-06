@@ -28,6 +28,7 @@
 		FC84747D2B20E8ED00C42732 /* RestaurantPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84747C2B20E8ED00C42732 /* RestaurantPreview.swift */; };
 		FC84747F2B20E90000C42732 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84747E2B20E90000C42732 /* RestaurantView.swift */; };
 		FC8474812B20E91A00C42732 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8474802B20E91A00C42732 /* RestaurantListView.swift */; };
+		FC8474832B20F06D00C42732 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8474822B20F06D00C42732 /* ErrorWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		FC84747C2B20E8ED00C42732 /* RestaurantPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreview.swift; sourceTree = "<group>"; };
 		FC84747E2B20E90000C42732 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 		FC8474802B20E91A00C42732 /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
+		FC8474822B20F06D00C42732 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				FC8474692B20E6C500C42732 /* SpeechRecognizer.swift */,
 				FC8474702B20E7EA00C42732 /* RestaurantViewModel.swift */,
+				FC8474822B20F06D00C42732 /* ErrorWrapper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				FC84747F2B20E90000C42732 /* RestaurantView.swift in Sources */,
 				FC8474712B20E7EA00C42732 /* RestaurantViewModel.swift in Sources */,
 				FC8474812B20E91A00C42732 /* RestaurantListView.swift in Sources */,
+				FC8474832B20F06D00C42732 /* ErrorWrapper.swift in Sources */,
 				6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */,
 				FC84746D2B20E7B400C42732 /* Location.swift in Sources */,
 				FC6664942B13655500937750 /* RaflaMapRepresentable.swift in Sources */,
@@ -399,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RafFinder/Preview Content\"";
+				DEVELOPMENT_TEAM = B9D6K8G2ZT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This should be enabled ";
@@ -430,6 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RafFinder/Preview Content\"";
+				DEVELOPMENT_TEAM = B9D6K8G2ZT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This should be enabled ";

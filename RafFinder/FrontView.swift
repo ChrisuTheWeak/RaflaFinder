@@ -18,9 +18,16 @@ struct ContentView_Previews: PreviewProvider {
 struct FrontScreenView: View {
     @EnvironmentObject private var vm: RestaurantsViewModel
     @State private var userInput: String = ""
+    @State private var isSwedish: Bool = false // Track the current language
     @StateObject private var speechRecognizer = SpeechRecognizer()
 
-    var toMapViewButton: String = "Let's Go"
+    var toMapViewButton: String {
+        return isSwedish ? "Låt oss gå" : "Let's Go" // Change button text based on language
+    }
+
+    var placeholderText: String {
+        return isSwedish ? "Ange matnamn" : "Enter food name" // Change placeholder text based on language
+    }
 
     var body: some View {
         NavigationView {
@@ -46,7 +53,7 @@ struct FrontScreenView: View {
 
                     Spacer(minLength: 80)
 
-                    TextField("Enter food name", text: $userInput)
+                    TextField(placeholderText, text: $userInput)
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .foregroundColor(.blue)
@@ -71,7 +78,7 @@ struct FrontScreenView: View {
                     Button(action: {
                         changeLanguage()
                     }) {
-                        Text("Change language")
+                        Text(isSwedish ? "Byt språk" : "Change language") // Display different text based on the current language
                             .fontWeight(.heavy)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
@@ -100,6 +107,12 @@ struct FrontScreenView: View {
             .background(Color.white)
             .environmentObject(speechRecognizer)
         }
+    }
+
+    func changeLanguage() {
+        isSwedish.toggle() // Toggle the language between English and Swedish
+        print("Language changed to \(isSwedish ? "Swedish" : "English")")
+        // You can add your logic to update the UI or perform other actions based on the language change
     }
 }
 
