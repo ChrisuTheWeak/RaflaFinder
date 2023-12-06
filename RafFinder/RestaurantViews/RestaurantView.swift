@@ -68,7 +68,7 @@ struct RestaurantView: View {
             Map(coordinateRegion: $vm.mapRegion,
                 showsUserLocation: true,
                 annotationItems: vm.locations,
-                annotationContent: { location in
+                annotationContent: { location in 
                 MapAnnotation(coordinate: location.coordinates){
                     MapAnnotationView()
                         .scaleEffect(vm.mapLocation == location ? 1 : 0.6)

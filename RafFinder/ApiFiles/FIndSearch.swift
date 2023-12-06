@@ -1,6 +1,7 @@
 import Foundation
 import CoreLocation
 
+
 // Address object model
 struct Address: Codable {
     let street1: String

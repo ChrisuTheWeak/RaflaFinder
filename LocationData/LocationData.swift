@@ -10,7 +10,7 @@ import MapKit
 
 class LocationData {
     
-
+    
     
     static let locations: [Location] = [
         Location(
@@ -31,3 +31,7 @@ class LocationData {
         )
     ]
 }
+
+    
+
+        

@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import CoreLocation
 
 struct FrontView: View {
     
@@ -90,7 +91,7 @@ struct FrontScreenView: View {
                     
                     
                     NavigationLink(destination: {
-                        
+                            
                         RestaurantView()
                             .environmentObject(RestaurantsViewModel())
                         

@@ -14,33 +14,24 @@ struct Location: Identifiable, Equatable {
     
     let name: String
     let cityName: String
-    let coordinates: CLLocationCoordinate2D
+    var coordinates: CLLocationCoordinate2D
     let imageNames: [String]
     let description: String
     let address: String
+    
     //let locationId: String
     //let Name: String
-    
+    mutating func changeCoord (_ newCord:CLLocationCoordinate2D){
+        coordinates = newCord
+    }
     
     //identiteetti kaikille listassa oleville.
     var id: String{
         name + cityName
     }
     
-    //Converts Address to coordinates for map annotations
-    func getCoordinates(from address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?)-> Void) {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address) { (placemarks, error) in
-            guard let placemarks = placemarks,
-                  let coordinate = placemarks.first?.location?.coordinate else {
-                completion(nil)
-                return
-            }
-            completion(coordinate)
-        }
-    }
     
-   /*getCoordinates(from: address) { coordinate in
+  /* getCoordinates(from: address) { coordinates in
         if (coordinate != nil){
             print(coordinate.unsafelyUnwrapped)
         }else{
