@@ -112,7 +112,6 @@ struct FrontScreenView: View {
     func changeLanguage() {
         isSwedish.toggle() // Toggle the language between English and Swedish
         print("Language changed to \(isSwedish ? "Swedish" : "English")")
-        // You can add your logic to update the UI or perform other actions based on the language change
     }
 }
 
