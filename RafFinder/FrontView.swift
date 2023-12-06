@@ -1,15 +1,6 @@
-//
-//  FrontView.swift
-//  RafFinder
-//
-//  Created by iosdev on 21.11.2023.
-//
-
-
 import SwiftUI
 
 struct FrontView: View {
-    
     var body: some View {
         NavigationView {
             FrontScreenView()
@@ -26,15 +17,13 @@ struct ContentView_Previews: PreviewProvider {
 
 struct FrontScreenView: View {
     @EnvironmentObject private var vm: RestaurantsViewModel
-    
     @State private var userInput: String = ""
-    
+    @StateObject private var speechRecognizer = SpeechRecognizer()
+
     var toMapViewButton: String = "Let's Go"
-    
-    
-    
+
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack {
                 VStack {
                     HStack {
@@ -46,17 +35,17 @@ struct FrontScreenView: View {
                             .padding()
                             .foregroundColor(.blue)
                     }
-                    
+
                     Spacer(minLength: 0)
-                    
+
                     Image("logoImage")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .padding(.horizontal, 16)
                         .frame(height: 300)
-                    
+
                     Spacer(minLength: 80)
-                    
+
                     TextField("Enter food name", text: $userInput)
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -67,7 +56,8 @@ struct FrontScreenView: View {
                             HStack {
                                 Spacer()
                                 Button(action: {
-                                    
+                                    // Start transcribing when the microphone button is tapped
+                                    speechRecognizer.startTranscribing()
                                 }) {
                                     Image(systemName: "mic.fill")
                                         .foregroundColor(.blue)
@@ -75,9 +65,9 @@ struct FrontScreenView: View {
                                 .padding(.trailing, 50)
                             }
                         )
-                    
+
                     Spacer()
-                    
+
                     Button(action: {
                         changeLanguage()
                     }) {
@@ -89,10 +79,8 @@ struct FrontScreenView: View {
                             .background(Color.gray)
                             .cornerRadius(40)
                             .padding(.horizontal, 16)
-                        
                     }
-                    
-                    
+
                     NavigationLink(destination: {
                         RestaurantView()
                             .environmentObject(RestaurantsViewModel())
@@ -107,10 +95,11 @@ struct FrontScreenView: View {
                             .padding(.horizontal, 16)
                     })
                 }
-                
             }
             .padding(.bottom, 80)
             .background(Color.white)
+            .environmentObject(speechRecognizer)
         }
     }
 }
+
