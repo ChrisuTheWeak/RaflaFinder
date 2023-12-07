@@ -17,8 +17,9 @@
 		6A6C3DC62B0CD6D000118509 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DC52B0CD6D000118509 /* LocationData.swift */; };
 		6A6C3DC82B0CDA8300118509 /* FrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DC72B0CDA8300118509 /* FrontView.swift */; };
 		6A6C3DCF2B11240300118509 /* RestaurantPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DCE2B11240300118509 /* RestaurantPreview.swift */; };
-		6A6C3DD22B12106100118509 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DD12B12106100118509 /* API.swift */; };
 		6A6C3DD42B12107700118509 /* FIndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DD32B12107700118509 /* FIndSearch.swift */; };
+		6ABEB6872B20FB0C00EBF6AC /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABEB6862B20FB0C00EBF6AC /* ErrorWrapper.swift */; };
+		6ABEB6892B20FC2400EBF6AC /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABEB6882B20FC2400EBF6AC /* SpeechRecognizer.swift */; };
 		6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */; };
 		6AF3F8BA2B04FC9E0001AB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */; };
 		6AF3F8BD2B04FC9E0001AB9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */; };
@@ -35,8 +36,9 @@
 		6A6C3DC52B0CD6D000118509 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		6A6C3DC72B0CDA8300118509 /* FrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontView.swift; sourceTree = "<group>"; };
 		6A6C3DCE2B11240300118509 /* RestaurantPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreview.swift; sourceTree = "<group>"; };
-		6A6C3DD12B12106100118509 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		6A6C3DD32B12107700118509 /* FIndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIndSearch.swift; sourceTree = "<group>"; };
+		6ABEB6862B20FB0C00EBF6AC /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		6ABEB6882B20FC2400EBF6AC /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		6AF3F8B22B04FC9C0001AB9F /* RafFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RafFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafFinderApp.swift; sourceTree = "<group>"; };
 		6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				6A6C3DC02B0CD65200118509 /* RestaurantViewModel.swift */,
+				6ABEB6862B20FB0C00EBF6AC /* ErrorWrapper.swift */,
+				6ABEB6882B20FC2400EBF6AC /* SpeechRecognizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,7 +90,6 @@
 		6A6C3DD02B12101900118509 /* ApiFiles */ = {
 			isa = PBXGroup;
 			children = (
-				6A6C3DD12B12106100118509 /* API.swift */,
 				6A6C3DD32B12107700118509 /* FIndSearch.swift */,
 			);
 			path = ApiFiles;
@@ -174,6 +177,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = 6AF3F8A92B04FC9C0001AB9F;
 			productRefGroup = 6AF3F8B32B04FC9C0001AB9F /* Products */;
@@ -210,7 +214,8 @@
 				6A6C3DC82B0CDA8300118509 /* FrontView.swift in Sources */,
 				6A6C3DC62B0CD6D000118509 /* LocationData.swift in Sources */,
 				6A6C3DC42B0CD6B400118509 /* Location.swift in Sources */,
-				6A6C3DD22B12106100118509 /* API.swift in Sources */,
+				6ABEB6872B20FB0C00EBF6AC /* ErrorWrapper.swift in Sources */,
+				6ABEB6892B20FC2400EBF6AC /* SpeechRecognizer.swift in Sources */,
 				6A6C3DB82B0CD45800118509 /* MapAnnotationView.swift in Sources */,
 				6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */,
 				6A6C3DBC2B0CD58900118509 /* RestaurantView.swift in Sources */,
@@ -347,6 +352,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Can we use your location?";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -377,6 +384,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Can we use your location?";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

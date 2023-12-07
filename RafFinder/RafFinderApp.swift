@@ -15,6 +15,7 @@ struct RafFinderApp: App {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        print("manager")
         
         
     }

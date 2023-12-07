@@ -26,12 +26,20 @@ struct ContentView_Previews: PreviewProvider {
 
 struct FrontScreenView: View {
     @EnvironmentObject private var vm: RestaurantsViewModel
-    
     @State private var userInput: String = ""
+    @State private var isSwedish: Bool = false //Track the current language
+    @StateObject private var speechRecognizer = SpeechRecognizer()
     
-    var toMapViewButton: String = "Let's Go"
+    var toMapViewButton: String {
+        return isSwedish ? "Låt oss gå" : "Let's Go" //Change button text based on language
+    }
+    var placeholderText: String {
+        return isSwedish ? "Ange mat namn" : "Enter food name" //Change placeholder text based on language
+    }
     
-    
+    var clbt: String {
+        return isSwedish ? "Ändra språk" : "Change Language" //Change text based on language
+    }
     
     var body: some View {
         NavigationView{
@@ -57,7 +65,7 @@ struct FrontScreenView: View {
                     
                     Spacer(minLength: 80)
                     
-                    TextField("Enter food name", text: $userInput)
+                    TextField(placeholderText, text: $userInput)
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .foregroundColor(.blue)
@@ -67,7 +75,8 @@ struct FrontScreenView: View {
                             HStack {
                                 Spacer()
                                 Button(action: {
-                                    
+                                    // Start transcribing when the microphone button is tapped
+                                    speechRecognizer.startTranscribing()
                                 }) {
                                     Image(systemName: "mic.fill")
                                         .foregroundColor(.blue)
@@ -81,7 +90,7 @@ struct FrontScreenView: View {
                     Button(action: {
                         changeLanguage()
                     }) {
-                        Text("Change language")
+                        Text(clbt)
                             .fontWeight(.heavy)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
@@ -111,6 +120,12 @@ struct FrontScreenView: View {
             }
             .padding(.bottom, 80)
             .background(Color.white)
+            .environmentObject(speechRecognizer)
         }
     }
+    func changeLanguage(){
+        isSwedish.toggle() //Toggle the language between English and Swedish
+        print("Language changed to \(isSwedish ? "Swedish" : "English")")
+    }
 }
+

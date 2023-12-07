@@ -25,33 +25,60 @@ class RestaurantsViewModel: ObservableObject{
        // Show location menu clicked restaurants menu page.
        @Published var sheetMenu: Location? = nil
 
-       init() {
-           // Load initial data from LocationData
-           let initialLocations = LocationData.locations
-           self.mapLocation = initialLocations.first!
-           self.locations = initialLocations
-           self.updateMapRegion(location: initialLocations.first!)
+    init() {
+        // Load initial data from LocationData
+        let initialLocations = LocationData.locations
+        self.mapLocation = initialLocations.first!
+        self.locations = initialLocations
+        self.updateMapRegion(locations: initialLocations.first!)
+        
+        // Fetch data from API
+        Task {
+            do {
+                let restaurants = try await APIManager.shared.fetchRestaurants()
+                var apiLocations: [Location] = []
+                
+                for restaurant in restaurants {
+                    var location = Location(
+                        name: restaurant.name,
+                        cityName: restaurant.addressObj.city,
+                        coordinates: CLLocationCoordinate2D(),
+                        imageNames: [],
+                        description: "",
+                        address: restaurant.addressObj.addressString
+                    )
+                    
+                    apiLocations.append(location)
+                    
+                    getCoordinates(from: location.address) { coordinates in
+                        if let coordinates = coordinates {
+                            location.changeCoord(coordinates)
+                            print("Coordinates found for:", location)
+                            
+                            if let index = apiLocations.firstIndex(where: { $0.id == location.id }) {
+                                apiLocations[index] = location
+                                self.updateLocations(apiLocations)
+                            }
+                        } else {
+                            print("Failed to get coordinates for:", location)
+                        }
+                    }
+                }
+            } catch {
+                print("Error fetching restaurants: (error)")
+            }
+        }
 
-           // Fetch data from API
-           Task {
-               do {
-                   let restaurants = try await APIManager.shared.fetchRestaurants()
-                   // Convert `Restaurant` to `Location` and update `locations`
-                   let apiLocations = restaurants.map { restaurant in
-                       Location(name: restaurant.name, cityName: restaurant.addressObj.city, coordinates: CLLocationCoordinate2D(), imageNames: [], description: "", address: restaurant.addressObj.addressString)
-                   }
-                   DispatchQueue.main.async {
-                       self.locations = apiLocations
-                   }
-               } catch {
-                   print("Error fetching restaurants: \(error)")
-               }
-           }
        }
 
-       private func updateMapRegion(location: Location) {
+    func updateLocations(_ updatedLocations: [Location]) {
+            DispatchQueue.main.async {
+                self.locations = updatedLocations
+            }
+        }
+       private func updateMapRegion(locations: Location) {
            withAnimation(.easeInOut) {
-               mapRegion = MKCoordinateRegion(center: location.coordinates, span: mapSpan)
+               mapRegion = MKCoordinateRegion(center: locations.coordinates, span: mapSpan)
            }
        }
 
@@ -67,6 +94,18 @@ class RestaurantsViewModel: ObservableObject{
                showRestourants = false
            }
        }
+    //Converts Address to coordinates for map annotations
+    func getCoordinates(from address: String, completion: @escaping(_ coordinates: CLLocationCoordinate2D?)-> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            guard let placemarks = placemarks,
+                  let coordinates = placemarks.first?.location?.coordinate else {
+                completion(nil)
+                return
+            }
+            completion(coordinates)
+        }
+    }
     
     func nxtButtonPress (){
         //get current index of map.
