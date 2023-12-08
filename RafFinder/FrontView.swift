@@ -27,10 +27,14 @@ struct FrontScreenView: View {
     var toMapViewButton: String {
         return isSwedish ? "Låt oss gå" : "Let's Go" // Change button text based on language
     }
-//    placeholder transcribe voice to text
 
+    // Placeholder text based on recording status and language
     var placeholderText: String {
-        return isRecording ? "Listening..." : speechRecognizer.transcript.isEmpty ? (isSwedish ? "Ange matnamn" : "Enter food name") : speechRecognizer.transcript
+        if isRecording {
+            return "Listening..."
+        } else {
+            return isSwedish ? "Ange matnamn" : "Enter food name"
+        }
     }
 
     var body: some View {
@@ -57,10 +61,10 @@ struct FrontScreenView: View {
 
                     Spacer(minLength: 80)
 
-                    TextField("", text: $userInput)
+                    TextField(placeholderText, text: $userInput)
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
                         .frame(height: 100)
                         .padding(.horizontal)
                         .overlay(
@@ -92,10 +96,9 @@ struct FrontScreenView: View {
                     Spacer()
 
                     Button(action: {
-                        // action
                         changeLanguage()
                     }) {
-                        Text("Change language")
+                        Text(isSwedish ? "Byt språk" : "Change language") // Display different text based on the current language
                             .fontWeight(.heavy)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
@@ -127,15 +130,12 @@ struct FrontScreenView: View {
         }
     }
 
-    //language toggle function
+    // language toggle function
     func changeLanguage() {
         isSwedish.toggle() // Toggle the language between English and Swedish
         print("Language changed to \(isSwedish ? "Swedish" : "English")")
     }
 }
-
-
-
 
 
 
