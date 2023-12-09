@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Menu: View {
-    @EnvironmentObject private var vm: RestaurantsViewModel
+    @ObservedObject var vm: RestaurantsViewModel
     let location: Location
     
     
@@ -59,14 +59,14 @@ struct Menu: View {
     
 }
 
-struct Menu_Previews: PreviewProvider {
+/*struct Menu_Previews: PreviewProvider {
     static var previews: some View {
         Menu(location:
             LocationData.locations.first!)
         .padding()
         .environmentObject(RestaurantsViewModel())
     }
-}
+}*/
 
 extension Menu {
     private var backButton: some View{

@@ -43,16 +43,12 @@ var category = "restaurants"
 let latLong = "60.2194,24.8135"
 let radius = "5"
 let radiusUnit = "km"
+var language = "en"
 
-var language: String {
-    return "en"
-}
-
-
-let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
 
 
 func FindSearchApi() {
+    let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
     if let url = URL(string: urlString) {
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
@@ -97,6 +93,7 @@ class APIManager {
 
     func fetchRestaurants() async throws -> [Restaurant] {
         let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
+        print(searchQuery)
         guard let url = URL(string: urlString) else {
             throw URLError(.badURL)
         }

@@ -27,16 +27,13 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct FrontScreenView: View {
-    @EnvironmentObject private var vm: RestaurantsViewModel
+    @State private var isNavigationActive = false
     @State private var userInput: String = ""
     @State private var isRecording = false
     @State private var isSwedish: Bool = false //Track the current language
     @StateObject private var speechRecognizer = SpeechRecognizer()
     
     
-    var toMapViewButton: String {
-        return isSwedish ? "Låt oss gå" : "Let's Go" //Change button text based on language
-    }
     var placeholderText: String {
             if isRecording {
                 return "Listening..."
@@ -89,41 +86,52 @@ struct FrontScreenView: View {
                                 Button(action: {
                                     // Start transcribing when the microphone button is tapped
                                     if isRecording {
-                                              speechRecognizer.stopTranscribing()
-                                          } else {
-                                              speechRecognizer.startTranscribing()
-                                          }
-                                          isRecording.toggle()
-                                      }) {
-                                          Image(systemName: isRecording ? "stop.fill" : "mic.fill")
-                                              .foregroundColor(.blue)
-                                      }
-                                      .padding(.trailing, 50)
-                                  }
-                              )
-                              .onChange(of: speechRecognizer.transcript) { newValue in
-                                  // Update userInput when transcript changes
-                                  userInput = newValue
-                              }
-                              .onTapGesture {
-                                  // Clear the text field when tapped
-                                  userInput = ""
-                              }
-                    Button(action:{
-                        
-                    }){
+                                        speechRecognizer.stopTranscribing()
+                                    } else {
+                                        speechRecognizer.startTranscribing()
+                                    }
+                                    isRecording.toggle()
+                                }) {
+                                    Image(systemName: isRecording ? "stop.fill" : "mic.fill")
+                                        .foregroundColor(.blue)
+                                }
+                                .padding(.trailing, 50)
+                            }
+                        )
+                        .onChange(of: speechRecognizer.transcript) { newValue in
+                            // Update userInput when transcript changes
+                            userInput = newValue
+                        }
+                        .onTapGesture {
+                            // Clear the text field when tapped
+                            userInput = ""
+                        }
+                    
+                    ZStack{
+                        //Navigates to map view using user's search
+                        NavigationLink(destination:
+                            RestaurantView(), isActive: $isNavigationActive) {
+                            EmptyView()
+                        }
+                        Text("")
+                    }
+                    .hidden()
+                    Button {
+                        searchQuery = userInput
+                        isNavigationActive = true
+                    } label: {
                         Text(submit)
                             .fontWeight(.heavy)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.gray)
+                            .background(Color.red)
                             .cornerRadius(40)
                             .padding(.horizontal, 16)
-                        
                     }
+                
                     Spacer()
-                    
+                    //Button to change language on FrontView
                     Button(action: {
                         changeLanguage()
                     }) {
@@ -138,20 +146,6 @@ struct FrontScreenView: View {
                         
                     }
                     
-                    
-                    NavigationLink(destination: {
-                        RestaurantView()
-                            .environmentObject(RestaurantsViewModel())
-                    }, label: {
-                        Text(toMapViewButton)
-                            .fontWeight(.heavy)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(40)
-                            .padding(.horizontal, 16)
-                    })
                 }
                 
             }
@@ -163,9 +157,6 @@ struct FrontScreenView: View {
     func changeLanguage(){
         isSwedish.toggle() //Toggle the language between English and Swedish
         print("Language changed to \(isSwedish ? "Swedish" : "English")")
-    }
-    func sendInput(){
-       
     }
     
 }

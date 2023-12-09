@@ -11,7 +11,7 @@ import SwiftUI
 // Preview for restaurant: show name city. 3 buttons Directions, Menu and Nxt Button. LocationData is used here to and RVM to localize data on screen for what will be shown.
 struct RestaurantPreview: View {
     
-    @EnvironmentObject private var vm: RestaurantsViewModel
+    @ObservedObject var vm: RestaurantsViewModel
     let location: Location
     
     var body: some View {
@@ -38,18 +38,18 @@ struct RestaurantPreview: View {
     }
 }
 
-struct RestaurantPreview_Previews: PreviewProvider {
+/*struct RestaurantPreview_Previews: PreviewProvider {
+    @ObservedObject var vm: RestaurantsViewModel
     static var previews: some View {
         ZStack {
             Color.green.ignoresSafeArea()
             
-            RestaurantPreview(location:
+            RestaurantPreview(vm: <#RestaurantsViewModel#>, location:
                 LocationData.locations.first!)
             .padding()
         }
-        .environmentObject(RestaurantsViewModel())
     }
-}
+}*/
     extension RestaurantPreview {
         //Restaurants picture
         private var imageCard: some View{
