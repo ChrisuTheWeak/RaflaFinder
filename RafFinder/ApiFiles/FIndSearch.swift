@@ -1,6 +1,7 @@
 import Foundation
 import CoreLocation
 
+
 // Address object model
 struct Address: Codable {
     let street1: String
@@ -37,27 +38,16 @@ struct ApiResponse: Codable {
 }
 
 let apiKey = "54B590DBD956436CB09843EAFEC982D2"
-var searchQuery = "pizza"
+var searchQuery = ""
 var category = "restaurants"
 let latLong = "60.2194,24.8135"
 let radius = "5"
 let radiusUnit = "km"
-var language = "en"
 
-/*func userInputHandler(_ userInput: String){
-    
-}*/
+var language: String {
+    return "en"
+}
 
-
-/*func changeLanguage(){
-    if(language == "en"){
-        category = "restauranger"
-        language = "sv"
-    } else {
-        category = "restaurants"
-        language = "en"
-    }
- }*/
 
 let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
 

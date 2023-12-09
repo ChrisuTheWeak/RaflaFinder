@@ -14,7 +14,7 @@ class LocationData {
     
     static let locations: [Location] = [
         Location(
-            name: "jamal Kebab",
+            name: "Start Your Adventure",
             cityName: "Espoo",
             coordinates: CLLocationCoordinate2D(latitude: 60.22494, longitude: 24.75979),
             imageNames: ["kebu"],

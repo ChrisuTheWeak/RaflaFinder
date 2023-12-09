@@ -7,6 +7,8 @@
 
 
 import SwiftUI
+import AVFoundation
+import Speech
 
 struct FrontView: View {
     
@@ -27,18 +29,28 @@ struct ContentView_Previews: PreviewProvider {
 struct FrontScreenView: View {
     @EnvironmentObject private var vm: RestaurantsViewModel
     @State private var userInput: String = ""
+    @State private var isRecording = false
     @State private var isSwedish: Bool = false //Track the current language
     @StateObject private var speechRecognizer = SpeechRecognizer()
+    
     
     var toMapViewButton: String {
         return isSwedish ? "Låt oss gå" : "Let's Go" //Change button text based on language
     }
     var placeholderText: String {
-        return isSwedish ? "Ange mat namn" : "Enter food name" //Change placeholder text based on language
-    }
+            if isRecording {
+                return "Listening..."
+            } else {
+                return isSwedish ? "Ange matnamn" : "Enter food name"
+            }
+        }
     
     var clbt: String {
         return isSwedish ? "Ändra språk" : "Change Language" //Change text based on language
+    }
+    
+    var submit: String {
+        return isSwedish ? "Skicka in" : "Submit" //Change text based on language
     }
     
     var body: some View {
@@ -76,15 +88,40 @@ struct FrontScreenView: View {
                                 Spacer()
                                 Button(action: {
                                     // Start transcribing when the microphone button is tapped
-                                    speechRecognizer.startTranscribing()
-                                }) {
-                                    Image(systemName: "mic.fill")
-                                        .foregroundColor(.blue)
-                                }
-                                .padding(.trailing, 50)
-                            }
-                        )
-                    
+                                    if isRecording {
+                                              speechRecognizer.stopTranscribing()
+                                          } else {
+                                              speechRecognizer.startTranscribing()
+                                          }
+                                          isRecording.toggle()
+                                      }) {
+                                          Image(systemName: isRecording ? "stop.fill" : "mic.fill")
+                                              .foregroundColor(.blue)
+                                      }
+                                      .padding(.trailing, 50)
+                                  }
+                              )
+                              .onChange(of: speechRecognizer.transcript) { newValue in
+                                  // Update userInput when transcript changes
+                                  userInput = newValue
+                              }
+                              .onTapGesture {
+                                  // Clear the text field when tapped
+                                  userInput = ""
+                              }
+                    Button(action:{
+                        
+                    }){
+                        Text(submit)
+                            .fontWeight(.heavy)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.gray)
+                            .cornerRadius(40)
+                            .padding(.horizontal, 16)
+                        
+                    }
                     Spacer()
                     
                     Button(action: {
@@ -127,5 +164,9 @@ struct FrontScreenView: View {
         isSwedish.toggle() //Toggle the language between English and Swedish
         print("Language changed to \(isSwedish ? "Swedish" : "English")")
     }
+    func sendInput(){
+       
+    }
+    
 }
 

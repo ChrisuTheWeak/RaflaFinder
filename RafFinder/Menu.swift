@@ -11,29 +11,12 @@ struct Menu: View {
     @EnvironmentObject private var vm: RestaurantsViewModel
     let location: Location
     
-    @State private var userInput: String = ""
-    
     
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
-                    TextField("Enter food or restaurant name", text: $userInput)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .foregroundColor(.blue)
-                        .padding(.horizontal)
-                        .overlay(
-                            HStack{
-                                Spacer()
-                                Button(action: {
-                                    
-                                }) {
-                                    Image(systemName: "mic.fill")
-                                        .foregroundColor(.blue)
-                                }
-                                .padding(.trailing, 50)
-                            }
-                        )
+
                     Text(location.name)
                         .bold()
                         .fontWeight(.light)

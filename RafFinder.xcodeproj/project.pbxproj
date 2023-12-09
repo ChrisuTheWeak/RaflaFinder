@@ -98,8 +98,6 @@
 		6AF3F8A92B04FC9C0001AB9F = {
 			isa = PBXGroup;
 			children = (
-				6A6C3DC22B0CD67300118509 /* LocationData */,
-				6A6C3DBF2B0CD61C00118509 /* Models */,
 				6AF3F8B42B04FC9C0001AB9F /* RafFinder */,
 				6AF3F8B32B04FC9C0001AB9F /* Products */,
 			);
@@ -116,6 +114,8 @@
 		6AF3F8B42B04FC9C0001AB9F /* RafFinder */ = {
 			isa = PBXGroup;
 			children = (
+				6A6C3DC22B0CD67300118509 /* LocationData */,
+				6A6C3DBF2B0CD61C00118509 /* Models */,
 				6A6C3DD02B12101900118509 /* ApiFiles */,
 				6A6C3DCD2B11166A00118509 /* RestaurantViews */,
 				6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */,
