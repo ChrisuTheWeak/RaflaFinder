@@ -140,7 +140,7 @@ struct FrontScreenView: View {
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
                             .foregroundColor(.white)
-                            .background(Color.gray)
+                            .background(Color.blue)
                             .cornerRadius(40)
                             .padding(.horizontal, 16)
                         
