@@ -14,7 +14,7 @@ class RestaurantsViewModel: ObservableObject{
     //Loaded  locations from data (LocationData)
     @Published var locations: [Location]
 
-       // Map's current Location
+       // Map's current Location to map
        @Published var mapLocation: Location
        @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
        let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
