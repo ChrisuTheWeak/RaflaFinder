@@ -20,6 +20,8 @@
 		6A6C3DD42B12107700118509 /* FIndSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C3DD32B12107700118509 /* FIndSearch.swift */; };
 		6ABEB6872B20FB0C00EBF6AC /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABEB6862B20FB0C00EBF6AC /* ErrorWrapper.swift */; };
 		6ABEB6892B20FC2400EBF6AC /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABEB6882B20FC2400EBF6AC /* SpeechRecognizer.swift */; };
+		6AC712262B2657EF00E89CBC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AC712242B2657EF00E89CBC /* Model.xcdatamodeld */; };
+		6AC712282B265E1500E89CBC /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC712272B265E1500E89CBC /* SearchHistory.swift */; };
 		6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */; };
 		6AF3F8BA2B04FC9E0001AB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */; };
 		6AF3F8BD2B04FC9E0001AB9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3F8BC2B04FC9E0001AB9F /* Preview Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		6A6C3DD32B12107700118509 /* FIndSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIndSearch.swift; sourceTree = "<group>"; };
 		6ABEB6862B20FB0C00EBF6AC /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
 		6ABEB6882B20FC2400EBF6AC /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		6AC712252B2657EF00E89CBC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		6AC712272B265E1500E89CBC /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
 		6AF3F8B22B04FC9C0001AB9F /* RafFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RafFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF3F8B52B04FC9C0001AB9F /* RafFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafFinderApp.swift; sourceTree = "<group>"; };
 		6AF3F8B92B04FC9E0001AB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,9 +63,11 @@
 		6A6C3DBF2B0CD61C00118509 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6AC712242B2657EF00E89CBC /* Model.xcdatamodeld */,
 				6A6C3DC02B0CD65200118509 /* RestaurantViewModel.swift */,
 				6ABEB6862B20FB0C00EBF6AC /* ErrorWrapper.swift */,
 				6ABEB6882B20FC2400EBF6AC /* SpeechRecognizer.swift */,
+				6AC712272B265E1500E89CBC /* SearchHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,10 +218,12 @@
 				6A6C3DC12B0CD65200118509 /* RestaurantViewModel.swift in Sources */,
 				6A6C3DBA2B0CD52800118509 /* RestaurantDetailView.swift in Sources */,
 				6A6C3DC82B0CDA8300118509 /* FrontView.swift in Sources */,
+				6AC712282B265E1500E89CBC /* SearchHistory.swift in Sources */,
 				6A6C3DC62B0CD6D000118509 /* LocationData.swift in Sources */,
 				6A6C3DC42B0CD6B400118509 /* Location.swift in Sources */,
 				6ABEB6872B20FB0C00EBF6AC /* ErrorWrapper.swift in Sources */,
 				6ABEB6892B20FC2400EBF6AC /* SpeechRecognizer.swift in Sources */,
+				6AC712262B2657EF00E89CBC /* Model.xcdatamodeld in Sources */,
 				6A6C3DB82B0CD45800118509 /* MapAnnotationView.swift in Sources */,
 				6AF3F8B62B04FC9C0001AB9F /* RafFinderApp.swift in Sources */,
 				6A6C3DBC2B0CD58900118509 /* RestaurantView.swift in Sources */,
@@ -426,6 +434,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6AC712242B2657EF00E89CBC /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6AC712252B2657EF00E89CBC /* Model.xcdatamodel */,
+			);
+			currentVersion = 6AC712252B2657EF00E89CBC /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6AF3F8AA2B04FC9C0001AB9F /* Project object */;
 }
