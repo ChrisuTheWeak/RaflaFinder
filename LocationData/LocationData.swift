@@ -14,17 +14,17 @@ class LocationData {
     
     static let locations: [Location] = [
         Location(
-            name: "jamal Kebab",
+            name: "Start Your Adventure",
             cityName: "Espoo",
             coordinates: CLLocationCoordinate2D(latitude: 60.22494, longitude: 24.75979),
             imageNames: ["kebu"],
-            description: "Best KEBAB in the whole Wallah veli",
-            address: "Kantelettarentie 1 Kauppakeskus Kaari, Helsinki 00420 Finland"
+            description: "start location",
+            address: ""
         ),
         Location(
             name: "Jukka Bar&Kebab",
             cityName: "Espoo",
-            coordinates: CLLocationCoordinate2D(latitude: 60.27496, longitude: 24.79970),
+            coordinates: CLLocationCoordinate2D(),
             imageNames: ["pizza"],
             description: "Suomalainen kala elukka",
             address: ""

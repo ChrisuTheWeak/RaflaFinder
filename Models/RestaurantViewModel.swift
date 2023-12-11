@@ -30,9 +30,9 @@ class RestaurantsViewModel: ObservableObject{
         let initialLocations = LocationData.locations
         self.mapLocation = initialLocations.first!
         self.locations = initialLocations
-        self.updateMapRegion(locations: initialLocations.first!)
+        self.updateMapRegion(location: initialLocations.first!)
         
-        // Fetch data from API
+        // Fetch data from API and Convert address to a coordiante to be displyed on map annotation, is a bit scuffed since getting the coordinate data was not as easy as intended.
         Task {
             do {
                 let restaurants = try await APIManager.shared.fetchRestaurants()
@@ -76,9 +76,11 @@ class RestaurantsViewModel: ObservableObject{
                 self.locations = updatedLocations
             }
         }
-       private func updateMapRegion(locations: Location) {
+       private func updateMapRegion(location: Location) {
            withAnimation(.easeInOut) {
-               mapRegion = MKCoordinateRegion(center: locations.coordinates, span: mapSpan)
+               print("Test39",locations)
+               mapRegion = MKCoordinateRegion(center: location.coordinates, span: mapSpan)
+               
            }
        }
 
@@ -89,13 +91,16 @@ class RestaurantsViewModel: ObservableObject{
        }
 
        func showNext(location: Location) {
+           print(location,"show nextjuttu")
            withAnimation(.easeInOut) {
                mapLocation = location
+               updateMapRegion(location: mapLocation)
                showRestourants = false
            }
        }
     //Converts Address to coordinates for map annotations
     func getCoordinates(from address: String, completion: @escaping(_ coordinates: CLLocationCoordinate2D?)-> Void) {
+        
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) { (placemarks, error) in
             guard let placemarks = placemarks,
@@ -108,19 +113,23 @@ class RestaurantsViewModel: ObservableObject{
     }
     
     func nxtButtonPress (){
+        print(locations.firstIndex,"nxt")
         //get current index of map.
         guard let currentIndex = locations.firstIndex (where: {$0 == mapLocation}) else{
             print("Didnt find current location")
             return
         }
+        print(currentIndex,"Test44")
         //check if NextIndex is valid
         let nextIndex = currentIndex + 1
         guard locations.indices.contains(nextIndex) else {
-            
+            print(nextIndex,"Test45")
             //Next Index is NOT valid
             // restarts from 0
             guard let firstLocation = locations.first else { return }
+            
             showNext(location: firstLocation)
+            
             return
         }
         let nextLocation = locations[nextIndex]
