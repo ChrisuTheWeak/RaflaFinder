@@ -79,6 +79,7 @@ struct RestaurantView: View {
             })
             
         }
+        //uses restaurant preview for the small window
         private var restaurnatPreview: some View{
             ZStack {
                 ForEach(vm.locations){ location in

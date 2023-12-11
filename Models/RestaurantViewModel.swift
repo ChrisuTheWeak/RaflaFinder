@@ -89,7 +89,7 @@ class RestaurantsViewModel: ObservableObject{
                showRestourants = !showRestourants
            }
        }
-
+     //Shows next location for restaurant usin above things
        func showNext(location: Location) {
            print(location,"show nextjuttu")
            withAnimation(.easeInOut) {
