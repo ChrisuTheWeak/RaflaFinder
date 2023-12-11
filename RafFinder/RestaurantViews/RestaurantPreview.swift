@@ -44,7 +44,7 @@ struct RestaurantPreview: View {
         ZStack {
             Color.green.ignoresSafeArea()
             
-            RestaurantPreview(vm: <#RestaurantsViewModel#>, location:
+            RestaurantPreview(vm: , location:
                 LocationData.locations.first!)
             .padding()
         }

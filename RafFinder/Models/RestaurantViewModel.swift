@@ -32,7 +32,7 @@ class RestaurantsViewModel: ObservableObject{
         self.locations = initialLocations
         self.updateMapRegion(locations: initialLocations.first!)
         
-        // Fetch data from API
+        // Fetch data from API and Convert address to a coordinate to be displayed on map annotation, is a bit scuffed since getting the coordinate data was not as easy as intended.
         Task {
             do {
                 let restaurants = try await APIManager.shared.fetchRestaurants()
@@ -87,10 +87,11 @@ class RestaurantsViewModel: ObservableObject{
                showRestourants = !showRestourants
            }
        }
-
+    //Shows next location for restaurant using above things
        func showNext(location: Location) {
            withAnimation(.easeInOut) {
                mapLocation = location
+               updateMapRegion(locations: mapLocation)
                showRestourants = false
            }
        }

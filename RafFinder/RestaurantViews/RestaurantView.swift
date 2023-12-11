@@ -32,7 +32,6 @@ struct RestaurantView: View {
     struct RestaurantView_Previews: PreviewProvider {
         static var previews: some View {
             RestaurantView()
-                .environmentObject(RestaurantsViewModel())
         }
     }
 extension RestaurantView{
@@ -78,6 +77,7 @@ extension RestaurantView{
         })
         
     }
+    //uses restaurants preview for the small window
     private var restaurnatPreview: some View{
         ZStack {
             ForEach(vm.locations){ location in

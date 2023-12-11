@@ -9,7 +9,6 @@ import SwiftUI
 import CoreLocation
 @main
 struct RafFinderApp: App {
-    //@StateObject private var vm = RestaurantsViewModel()
     private let manager = CLLocationManager()
     init() {
         manager.desiredAccuracy = kCLLocationAccuracyBest

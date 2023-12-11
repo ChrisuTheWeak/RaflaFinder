@@ -74,6 +74,7 @@ struct FrontScreenView: View {
                     
                     Spacer(minLength: 80)
                     
+                    //Get users input from textfield
                     TextField(placeholderText, text: $userInput)
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -84,27 +85,24 @@ struct FrontScreenView: View {
                             HStack {
                                 Spacer()
                                 Button(action: {
-                                    // Start transcribing when the microphone button is tapped
-                                    if isRecording {
-                                        speechRecognizer.stopTranscribing()
-                                    } else {
-                                        speechRecognizer.startTranscribing()
-                                    }
-                                    isRecording.toggle()
+                                    // Use a separate function to handle recording
+                                    toggleRecording()
                                 }) {
                                     Image(systemName: isRecording ? "stop.fill" : "mic.fill")
                                         .foregroundColor(.blue)
                                 }
                                 .padding(.trailing, 50)
+                                // Increase the hit test area for the button
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    toggleRecording()
+                                }
                             }
                         )
+
                         .onChange(of: speechRecognizer.transcript) { newValue in
                             // Update userInput when transcript changes
                             userInput = newValue
-                        }
-                        .onTapGesture {
-                            // Clear the text field when tapped
-                            userInput = ""
                         }
                     
                     ZStack{
@@ -117,6 +115,7 @@ struct FrontScreenView: View {
                     }
                     .hidden()
                     Button {
+                        //Save user input in searchQuery
                         searchQuery = userInput
                         isNavigationActive = true
                     } label: {
@@ -154,6 +153,15 @@ struct FrontScreenView: View {
             .environmentObject(speechRecognizer)
         }
     }
+    // Add a separate function to handle recording toggle
+    func toggleRecording() {
+            if isRecording {
+                speechRecognizer.stopTranscribing()
+            } else {
+                speechRecognizer.startTranscribing()
+            }
+            isRecording.toggle()
+        }
     func changeLanguage(){
         isSwedish.toggle() //Toggle the language between English and Swedish
         print("Language changed to \(isSwedish ? "Swedish" : "English")")
