@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
-
+import CoreLocation
 @main
 struct RafFinderApp: App {
+    @StateObject private var vm = RestaurantsViewModel()
+    private let manager = CLLocationManager()
+    init() {
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        print("manager")
+        
+        
+    }
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+       WindowGroup {
+           FrontView()
+       }
     }
 }
