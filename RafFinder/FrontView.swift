@@ -1,60 +1,56 @@
-//
-//  FrontView.swift
-//  RafFinder
-//
-//  Created by iosdev on 21.11.2023.
-//
-
-
 import SwiftUI
 import AVFoundation
 import Speech
 
+// Main view for the application
 struct FrontView: View {
     
     var body: some View {
+        // Embed the FrontScreenView in a NavigationView
         NavigationView {
             FrontScreenView()
-                .navigationBarHidden(true)
+                .navigationBarHidden(true) // Hide the navigation bar
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        // Preview for FrontView
         FrontView()
-        
     }
 }
 
+// Front screen of the application
 struct FrontScreenView: View {
     @State private var isNavigationActive = false
     @State private var userInput: String = ""
     @State private var isRecording = false
-    @State private var isSwedish: Bool = false //Track the current language
+    @State private var isSwedish: Bool = false // Track the current language
     @StateObject private var speechRecognizer = SpeechRecognizer()
     @StateObject private var languageManager = LanguageManager.shared
-    
     
     var placeholderText: String {
         if isRecording {
             return "Listening..."
         } else {
+            // placeholder text based on the current language
             return languageManager.currentLanguage == "sv" ? "Ange matnamn" : "Enter food name"
         }
     }
 
-    
     var clbt: String {
+        //  button text based on the current language
         return languageManager.currentLanguage == "sv" ? "Ändra språk" : "Change Language"
     }
 
     var submit: String {
+        // submit button text based on the current language
         return languageManager.currentLanguage == "sv" ? "Skicka in" : "Submit"
     }
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack {
                 VStack {
                     HStack {
@@ -86,32 +82,29 @@ struct FrontScreenView: View {
                         .overlay(
                             HStack {
                                 Spacer()
-                                    Button(action: {
-                                        // Use a separate function to handle recording
-                                                toggleRecording()
-                                                    }) {
-                                                        Image(systemName: isRecording ? "stop.fill" : "mic.fill")
-                                                                    .foregroundColor(.blue)
-                                                            }
-                                                            .padding(.trailing, 50)
-                                                            // Increase the hit test area for the button
-                                                            .contentShape(Rectangle())
-                                                            .onTapGesture {
-                                                                toggleRecording()
-                                                            }
-                                                        }
-                                                    )
-                                
-                                                    .onChange(of: speechRecognizer.transcript) { newValue in
-                                                        // Update userInput when transcript changes
-                                                        userInput = newValue
-                                                    }
-                                                
-
-                    ZStack{
-                        //Navigates to map view using user's search
-                        NavigationLink(destination:
-                            RestaurantView(), isActive: $isNavigationActive) {
+                                Button(action: {
+                                    // Function to handle recording
+                                    toggleRecording()
+                                }) {
+                                    Image(systemName: isRecording ? "stop.fill" : "mic.fill")
+                                        .foregroundColor(.blue)
+                                }
+                                .padding(.trailing, 50)
+                                // Increase the hit test area for the button
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    toggleRecording()
+                                }
+                            }
+                        )
+                        .onChange(of: speechRecognizer.transcript) { newValue in
+                            // it Update userInput when transcript changes
+                            userInput = newValue
+                        }
+                    
+                    ZStack {
+                        // Navigates to map view using user's search
+                        NavigationLink(destination: RestaurantView(), isActive: $isNavigationActive) {
                             EmptyView()
                         }
                         Text("")
@@ -132,7 +125,7 @@ struct FrontScreenView: View {
                     }
                 
                     Spacer()
-                    //Button to change language on FrontView
+                    // Button to change language on FrontView
                     Button(action: {
                         languageManager.changeLanguage()
                     }) {
@@ -145,7 +138,6 @@ struct FrontScreenView: View {
                             .cornerRadius(40)
                             .padding(.horizontal, 16)
                     }
-                    
                 }
                 .onAppear {
                     // Set the initial language to English when the view appears
@@ -159,19 +151,20 @@ struct FrontScreenView: View {
         }
     }
     
-        // function to handle recording toggle
-        func toggleRecording() {
-            if isRecording {
-                speechRecognizer.stopTranscribing()
-            } else {
-                speechRecognizer.startTranscribing()
-            }
-            isRecording.toggle()
+    // Function to handle recording toggle
+    func toggleRecording() {
+        if isRecording {
+            speechRecognizer.stopTranscribing()
+        } else {
+            speechRecognizer.startTranscribing()
         }
-    
-    func changeLanguage(){
-        isSwedish.toggle() //Toggle the language between English and Swedish
-        print("Language changed to \(isSwedish ? "Swedish" : "English")")
+        isRecording.toggle()
     }
     
+    // Function to change language
+    func changeLanguage() {
+        isSwedish.toggle() // Toggle the language between English and Swedish
+        print("Language changed to \(isSwedish ? "Swedish" : "English")")
+    }
 }
+
