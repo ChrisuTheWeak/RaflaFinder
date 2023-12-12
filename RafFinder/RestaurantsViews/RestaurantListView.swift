@@ -8,7 +8,7 @@
 import SwiftUI
 // a dropdown menu of restaurants Displays name and city.
 struct RestaurantsListView: View {
-    @EnvironmentObject private var vm: RestaurantsViewModel
+    @ObservedObject var vm: RestaurantsViewModel
     var body: some View {
         List{
             ForEach(vm.locations) { location in
@@ -25,12 +25,12 @@ struct RestaurantsListView: View {
     }
 }
 
-struct RestaurantsListView_Previews: PreviewProvider {
+/*struct RestaurantsListView_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantsListView()
-            .environmentObject(RestaurantsViewModel())
+        RestaurantsListView(vm: )
+            
     }
-}
+}*/
 // Displays Picture in Hstack and child shown in Vstack, Done to have a clean UI
 extension RestaurantsListView{
     private func listRowView (location: Location) -> some View{

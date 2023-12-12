@@ -1,6 +1,7 @@
 import Foundation
 import CoreLocation
 
+
 // Address object model
 struct Address: Codable {
     let street1: String
@@ -37,27 +38,17 @@ struct ApiResponse: Codable {
 }
 
 let apiKey = "54B590DBD956436CB09843EAFEC982D2"
-var searchQuery = "p"
+var searchQuery = ""
 var category = "restaurants"
 let latLong = "60.2194,24.8135"
 let radius = "5"
 let radiusUnit = "km"
 var language = "en"
 
-func changeLanguage(){
-    if(language == "en"){
-        language = "swe"
-        category = "restauranger"
-    } else {
-        language = "en"
-        category = "restaurants"
-    }
-}
-
-let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
 
 
 func FindSearchApi() {
+    let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
     if let url = URL(string: urlString) {
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
@@ -97,11 +88,13 @@ func FindSearchApi() {
     }
     
 }
+
 class APIManager {
     static let shared = APIManager()
 
     func fetchRestaurants() async throws -> [Restaurant] {
-        let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
+        let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(LanguageManager.shared.currentLanguage)"
+        print(searchQuery)
         guard let url = URL(string: urlString) else {
             throw URLError(.badURL)
         }
@@ -111,3 +104,20 @@ class APIManager {
         return apiResponse.data
     }
 }
+
+
+//class APIManager {
+//    static let shared = APIManager()
+//
+//    func fetchRestaurants() async throws -> [Restaurant] {
+//        let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
+//        print(searchQuery)
+//        guard let url = URL(string: urlString) else {
+//            throw URLError(.badURL)
+//        }
+//
+//        let (data, _) = try await URLSession.shared.data(from: url)
+//        let apiResponse = try JSONDecoder().decode(ApiResponse.self, from: data)
+//        return apiResponse.data
+//    }
+//}

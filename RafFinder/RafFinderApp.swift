@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
-
+import CoreLocation
 @main
 struct RafFinderApp: App {
+    private let manager = CLLocationManager()
+    init() {
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        print("manager")
+        
+        
+    }
     var body: some Scene {
-        WindowGroup {
-            FrontView()
-        }
+       WindowGroup {
+           FrontView()
+       }
     }
 }
