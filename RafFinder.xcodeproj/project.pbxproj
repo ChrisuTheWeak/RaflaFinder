@@ -63,11 +63,9 @@
 		6A6C3DBF2B0CD61C00118509 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6AC712242B2657EF00E89CBC /* Model.xcdatamodeld */,
 				6A6C3DC02B0CD65200118509 /* RestaurantViewModel.swift */,
 				6ABEB6862B20FB0C00EBF6AC /* ErrorWrapper.swift */,
 				6ABEB6882B20FC2400EBF6AC /* SpeechRecognizer.swift */,
-				6AC712272B265E1500E89CBC /* SearchHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -101,6 +99,15 @@
 			path = ApiFiles;
 			sourceTree = "<group>";
 		};
+		6AC3C6CD2B2876A000841A47 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6AC712272B265E1500E89CBC /* SearchHistory.swift */,
+				6AC712242B2657EF00E89CBC /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		6AF3F8A92B04FC9C0001AB9F = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +127,7 @@
 		6AF3F8B42B04FC9C0001AB9F /* RafFinder */ = {
 			isa = PBXGroup;
 			children = (
+				6AC3C6CD2B2876A000841A47 /* CoreData */,
 				6A6C3DC22B0CD67300118509 /* LocationData */,
 				6A6C3DBF2B0CD61C00118509 /* Models */,
 				6A6C3DD02B12101900118509 /* ApiFiles */,

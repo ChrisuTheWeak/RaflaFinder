@@ -43,11 +43,7 @@ struct Menu: View {
                     .padding(1)
                     
                     
-                   /* Link("To the restaurant menu", destination: URL(string: location.webSite)!)
-                        .frame(width: 350, height: 400)
-                        .background(Color.yellow)
-                        .cornerRadius(10)
-                        .font(.title2) */
+                   
                 }
                 .offset(y:0)
                 .frame(minWidth: 0, maxHeight: .infinity, alignment: .topLeading)
@@ -59,14 +55,7 @@ struct Menu: View {
     
 }
 
-/*struct Menu_Previews: PreviewProvider {
-    static var previews: some View {
-        Menu(location:
-            LocationData.locations.first!)
-        .padding()
-        .environmentObject(RestaurantsViewModel())
-    }
-}*/
+
 
 extension Menu {
     private var backButton: some View{

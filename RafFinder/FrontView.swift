@@ -35,11 +35,11 @@ struct FrontScreenView: View {
     @State private var isRecording = false
     @State private var isSwedish: Bool = false // Track the current language
     @StateObject private var speechRecognizer = SpeechRecognizer()
-    @Environment(\.managedObjectContext) private var managedObjectContext
+    @Environment(\.managedObjectContext) private var managedObjectContext //The managed object context is used for fetching, modifying, and saving data in Core Data.
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \SearchHistory.searchText, ascending: true)],
         animation: .default)
-    private var searchHistories: FetchedResults<SearchHistory>
+    private var searchHistories: FetchedResults<SearchHistory> //This property performs a fetch request in Core Data for 'SearchHistory' entities.
 
     var placeholderText: String {
         if isRecording {
@@ -56,11 +56,11 @@ struct FrontScreenView: View {
     var submit: String {
         return isSwedish ? "Skicka in" : "Submit" // Change text based on language
     }
-    
+    // function to save user searches
     private func saveSearch() {
         let searchText = userInput.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        // Check if the search text already exists in the search history
+        // Check if the search text already exists in the search history or empty
         let alreadyExists = searchHistories.contains { searchHistory in
             searchHistory.searchText?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() == searchText.lowercased()
         }
@@ -143,7 +143,7 @@ struct FrontScreenView: View {
                     .onTapGesture {
                         userInput = ""
                     }
-                
+                // show list of previous searches if searchbar is focused
                 if isSearchBarFocused {
                     
                     List(searchHistories, id: \.self) { searchHistory in
@@ -206,7 +206,7 @@ struct FrontScreenView: View {
             .environmentObject(speechRecognizer)
         }
         .onAppear {
-                    // Print statement inside a modifier
+                    
                     print("Number of search histories: \(searchHistories.count)")
                 }
     }
