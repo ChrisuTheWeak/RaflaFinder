@@ -13,6 +13,7 @@ import CoreLocation
 
 struct RestaurantView: View {
     @StateObject private var vm = RestaurantsViewModel()
+    
     var body: some View {
         ZStack{
             mapLayer
@@ -39,7 +40,7 @@ extension RestaurantView{
     //MainView is the top bar that has the navigation and name.
     private var mainView: some View{
         VStack{
-            Text(vm.mapLocation.name + ", " + vm.mapLocation.cityName)
+            Text(vm.mapLocation.name)
                 .font(.title2)
                 .foregroundColor(.primary)
                 .frame(height: 55)

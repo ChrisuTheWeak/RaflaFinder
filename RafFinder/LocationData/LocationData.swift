@@ -9,7 +9,6 @@ import Foundation
 import MapKit
 
 class LocationData {
-    
 
     
     static let locations: [Location] = [
@@ -20,6 +19,14 @@ class LocationData {
             imageNames: ["kebu"],
             description: "Best KEBAB in the whole Wallah veli",
             address: "Kantelettarentie 1 Kauppakeskus Kaari, Helsinki 00420 Finland"
+        ),
+        Location(
+            name: "Jukka Bar&Kebab",
+            cityName: "Espoo",
+            coordinates: CLLocationCoordinate2D(),
+            imageNames: ["pizza"],
+            description: "Suomalainen kala elukka",
+            address: ""
         )
     ]
 }

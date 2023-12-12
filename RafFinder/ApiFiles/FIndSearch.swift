@@ -37,6 +37,7 @@ struct ApiResponse: Codable {
     let data: [Restaurant]
 }
 
+// API Configuration
 let apiKey = "54B590DBD956436CB09843EAFEC982D2"
 var searchQuery = ""
 var category = "restaurants"
@@ -46,13 +47,14 @@ let radiusUnit = "km"
 var language = "en"
 
 
-
+//function to perform the API request
 func FindSearchApi() {
     let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
     if let url = URL(string: urlString) {
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         
+        //Create a URLSession data task to fetch data
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -64,7 +66,7 @@ func FindSearchApi() {
                 print("Invalid response")
                 return
             }
-
+            //Parse the JSON data
             guard let data = data else {
                 print("No data")
                 return
@@ -88,17 +90,20 @@ func FindSearchApi() {
     }
     
 }
+
+//APIManager Class for managing API calls using Swift's async/await syntax
 class APIManager {
     static let shared = APIManager()
 
     func fetchRestaurants() async throws -> [Restaurant] {
-        let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(language)"
-        print(searchQuery)
+        let urlString = "https://api.content.tripadvisor.com/api/v1/location/search?key=\(apiKey)&searchQuery=\(searchQuery)&category=\(category)&latLong=\(latLong)&radius=\(radius)&radiusUnit=\(radiusUnit)&language=\(LanguageManager.shared.currentLanguage)"
+    
         guard let url = URL(string: urlString) else {
             throw URLError(.badURL)
         }
-
+        // Perform an async data fetch
         let (data, _) = try await URLSession.shared.data(from: url)
+        // Decode the JSON response
         let apiResponse = try JSONDecoder().decode(ApiResponse.self, from: data)
         return apiResponse.data
     }

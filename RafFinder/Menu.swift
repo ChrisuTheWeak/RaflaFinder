@@ -4,6 +4,8 @@
 //
 //  Created by iosdev on 19.11.2023.
 //
+// Right now this page is useless as we couldn't get data that we wanted from api
+
 
 import SwiftUI
 
@@ -16,7 +18,7 @@ struct Menu: View {
         NavigationView {
             ZStack {
                 VStack {
-
+                    // Shows chosen restaurants name
                     Text(location.name)
                         .bold()
                         .fontWeight(.light)
@@ -42,12 +44,6 @@ struct Menu: View {
                     }
                     .padding(1)
                     
-                    
-                   /* Link("To the restaurant menu", destination: URL(string: location.webSite)!)
-                        .frame(width: 350, height: 400)
-                        .background(Color.yellow)
-                        .cornerRadius(10)
-                        .font(.title2) */
                 }
                 .offset(y:0)
                 .frame(minWidth: 0, maxHeight: .infinity, alignment: .topLeading)
@@ -59,16 +55,8 @@ struct Menu: View {
     
 }
 
-/*struct Menu_Previews: PreviewProvider {
-    static var previews: some View {
-        Menu(location:
-            LocationData.locations.first!)
-        .padding()
-        .environmentObject(RestaurantsViewModel())
-    }
-}*/
-
 extension Menu {
+    //Button to go back to map view but it takes you to front view
     private var backButton: some View{
         Button{
             vm.sheetMenu = nil

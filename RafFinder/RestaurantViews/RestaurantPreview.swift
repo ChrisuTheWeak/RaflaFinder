@@ -22,7 +22,6 @@ struct RestaurantPreview: View {
                 textCard
             }
             VStack{
-                directionsButton
                 menuButton
                 nxtRaflaButton
             }
@@ -38,18 +37,6 @@ struct RestaurantPreview: View {
     }
 }
 
-/*struct RestaurantPreview_Previews: PreviewProvider {
-    @ObservedObject var vm: RestaurantsViewModel
-    static var previews: some View {
-        ZStack {
-            Color.green.ignoresSafeArea()
-            
-            RestaurantPreview(vm: , location:
-                LocationData.locations.first!)
-            .padding()
-        }
-    }
-}*/
     extension RestaurantPreview {
         //Restaurants picture
         private var imageCard: some View{
@@ -90,23 +77,12 @@ struct RestaurantPreview: View {
             .buttonStyle(.borderedProminent)
          
         }
-        //Button for next restaurnat:
+        //Button for next restaurant:
         private var nxtRaflaButton: some View{
             Button{
                 vm.nxtButtonPress()
             }label: {
                 Text("Nxt Rafla")
-                    .font(.headline)
-                    .frame(width: 120,height: 30)
-            }
-            .buttonStyle(.bordered)
-        }
-        //Button to get directions
-        private var directionsButton: some View{
-            Button{
-                
-            }label: {
-                Text("Directions")
                     .font(.headline)
                     .frame(width: 120,height: 30)
             }

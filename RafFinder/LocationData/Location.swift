@@ -25,21 +25,12 @@ struct Location: Identifiable, Equatable {
         coordinates = newCord
     }
     
-    //identiteetti kaikille listassa oleville.
+    //Identity to all list items
     var id: String{
         name + cityName
     }
-    
-    
-  /* getCoordinates(from: address) { coordinates in
-        if (coordinate != nil){
-            print(coordinate.unsafelyUnwrapped)
-        }else{
-            print("Address Broken!!!")
-        }
-    }*/
 
-    // lisää lokaatioille logiican millä voi tarkistaa locaation id.n
+    //Adds logic for locations so that location id can be checked    
     static func == (lhs:Location, rhs: Location) -> Bool{
         lhs.id == rhs.id
     }

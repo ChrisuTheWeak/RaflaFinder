@@ -25,12 +25,6 @@ struct RestaurantsListView: View {
     }
 }
 
-/*struct RestaurantsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantsListView(vm: )
-            
-    }
-}*/
 // Displays Picture in Hstack and child shown in Vstack, Done to have a clean UI
 extension RestaurantsListView{
     private func listRowView (location: Location) -> some View{
